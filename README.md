@@ -12,7 +12,7 @@
 # Install gulp
 npm install -g gulp
 
-# Clone the li-rnr-hack branch
+# Clone the linc-sony-demo branch
 git clone https://github.com/lithiumtech/linc-sony-demo.git
 
 # Avoid using sudo with npm; take ownership!
