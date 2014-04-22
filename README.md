@@ -27,4 +27,4 @@ gulp
 
 ## Screenshot
 
-![alt text](https://raw.githubusercontent.com/lithiumtech/linc-sony-demo/master/assets/lithium/screenshot.svg "Sony Demo Screenshot")
+![alt text](https://raw.githubusercontent.com/lithiumtech/linc-sony-demo/master/assets/lithium/screenshot.png "Sony Demo Screenshot")
