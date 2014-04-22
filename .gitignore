@@ -1,0 +1,9 @@
+.DS_STORE
+.netbeans
+nbproject
+.idea
+coverage
+test-reports
+
+node_modules/
+bower_components/

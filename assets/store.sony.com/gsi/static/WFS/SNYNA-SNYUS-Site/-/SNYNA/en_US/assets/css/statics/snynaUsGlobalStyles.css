@@ -1,0 +1,93 @@
+/* LM 01_16_14 */
+
+/* Header Styles */
+.snyCallOutText { color: #ED4E24; font-weight: bold;}
+ul.dropDownPromoBar {width: 1056px; height: 39px; float: left; background: #EAEDF3; margin: 0; }
+li.dropDownPromoBarItem { display: inline-block; padding: 0 30px; }
+li.dropDownPromoBarItem.divider {width: auto; height: auto; background: url('../../img/global/topPromoDivider.png') no-repeat right center;}
+li.dropDownPromoBarItem a { font-size: 12px;  line-height: 39px; font-family: 'SST', Monaco, Helvetica, Arial, sans-serif; font-weight: bold; color: #30343F; background: url('../../img/global/promoArrow.png') right center no-repeat; padding-right: 25px;}
+li.dropDownPromoBarItem a:hover {text-decoration: underline; }
+.ws-logo-image {height: 84px !important; width: 122px !important;}
+.sny-hdr-search-contents .sny-offers-list li:first-child {
+padding: 0 10px 0 0;
+}
+/* More Sony Sites v1 */
+#moreSonySitesContent {font-family: 'SST', arial, sans-serif; padding: 40px 0 60px 0;}
+#moreSonySitesContent {width: 1056px; margin: 0 auto;-moz-box-shadow: 3px 3px 5px 6px #ccc;/* -webkit-box-shadow: 3px 3px 5px 6px #ccc; */}
+#moreSonySitesContent .moreSonySitesTitle {font-size: 24px; color: #30343f; width: 75%; float: left; font-weight: normal; margin: 0; padding: 4px 0 0 0;}
+#moreSonySitesContent .closeMoreSitesTitle {cursor: pointer; font-size: 11px; color: #30343f; padding: 0 31px 0 0; line-height: 44px; float: right; text-decoration: none; background: url('../../img/landing/snyna_moreSonySite_closeBtn.png') no-repeat 33px 10px transparent; height: 44px;}
+#moreSonySitesContent .featuredSitesList {width: 100%; position: relative; clear: both; margin: 46px 0 25px 0; list-style-type: none; height: 170px; padding: 0;}
+#moreSonySitesContent .featuredSitesList li {width: 335px; float: left; margin: 0 25px 0 0;}
+#moreSonySitesContent .featuredSitesList li.last {margin-right: 0 !important;}
+#moreSonySitesContent .featuredSiteTitle {font-size: 14px; padding: 8px 0 0 0; color: #30343f; text-decoration: none; display: inline-block;}
+
+#moreSonySitesContent .otherSonySitesList {background: #eaedf4; padding: 26px; list-style-type: none; clear: both; height: 150px;}
+#moreSonySitesContent .otherSonySitesList li {width: 210px; float: left; height: 93px; margin: 0 53px 0 0;}
+#moreSonySitesContent .otherSonySitesList li.last {margin: 0;}
+#moreSonySitesContent .otherSonySitesList a.txtLink {font-size: 14px !important; padding: 0 0 9px 0 !important;display: inline-block;}
+#moreSonySitesContent .otherSiteDescription {font-size: 12px; color: #30343f; display: block;margin: 0;padding: 0;}
+
+#senLogo {background: url('../../img/landing/snyna_moreSonySites_SENlogo.jpg') no-repeat 0 0 transparent; height: 126px;}
+#playstationLogo {background: url('../../img/landing/snyna_moreSonySites_PSlogo.jpg') no-repeat 0 0 transparent; height: 126px;}
+#crackleLogo {background: url('../../img/landing/snyna_moreSonySites_cracklelogo.jpg') no-repeat 0 0 transparent; height: 126px;}
+
+.sny-more-sony-sites-content {background-color: #fff !important; width: 1090px !important; border: 2px solid #ddd;}
+
+.socialYouTube { background: url('../../img/global/badges/yt-brand-stacked-web.jpg') no-repeat 0 0 transparent; height: 30px; width: 30px; }
+.socialGooglePlus { background: url('../../img/global/badges/Red-signin_Short_base_44dp.jpg') no-repeat 0 0 transparent; height: 30px; width: 30px; }
+
+span.acDropPromoItem { background: url('../../img/global/SearchDropDown106.png') no-repeat 10px 0 transparent; height: 50px; width: 48px; line-height: 50px; padding: 15px 0px 15px 70px; vertical-align: top; color: #ED4E24; font-size: 14px; font-weight: bold; }
+.sny-visinav .sny-top-subcategory-list li a span { color: #30343F; display: table-cell; height: 30px; vertical-align: middle; width: 131px; font-size: 11px; line-height: 14px; font-family:'SST W01 Roman';  }
+.sny-top-subcategory-list li a:hover span { color: #4571EC; }
+
+/** Holiday Email Pop-up **/
+#snyHolidayOverlay {background: #30343f; opacity: 0.8; filter: alpha(opacity = 80) !important; height: 100%; position: fixed;top: 0px;bottom: 0px;left: 0px;right: 0px;z-index: 100;display: none;}
+#snyHolidayOverlayMsg {position: fixed;top: 160px;left: 50%; background: url('../../img/landing/snynaUsGlobalEmailSignUp_bg_010814.jpg') no-repeat 0 0 #f3f3f4;height: 302px; width: 496px; color: #333; -moz-box-shadow: 0 1px 5px #333;-webkit-box-shadow: 0 1px 5px #333;z-index: 101;display: none; margin-left: -248px;}
+#closeHolidayMsg {float: right; width: 34px;height: 34px;background: url('../../img/landing/snynUs_emailSignupHolidayClose.png') no-repeat top left;margin-top: -16px;margin-right: -16px; text-indent: -9000em;}
+#closeHolidayMsg:hover {cursor:pointer;}
+#snynaGlobalEmailSignup {position: absolute; top: 130px; left: 40px; font-family: 'Arial', Helvetica, sans-serif;}
+#snynaGlobalEmailSignup ul {list-style-type: none; overflow: hidden;}
+#snynaGlobalEmailSignup li {margin: 0 0 4px 0;}
+#snynaGlobalEmailSignup li.submit {margin: 21px 0 0 0; height: 31px;}
+#snynaGlobalEmailSignup li.error {height: 18px;}
+#snynaGlobalEmailSignup .emailAddress {font-weight: bold;}
+#snynaGlobalEmailSignup_Email {padding: 6px; width: 400px; height: 24px; border: 1px solid #ccc; color: #555;}
+#globalEmailSignupErrorMsg {color: red; display: none;}
+#snynaGlobalEmailSubmitBtn {padding: 12px 22px; background: #1058a2; color: #fff; font-weight: bold; font-size: 14px;}
+#snynaGlobalEmailSubmitBtn:hover {text-decoration: none; cursor: pointer;}
+#snyHolidayOverlayMsg div.email-signup {padding-left: 28px;}
+#snyHolidayOverlayMsg div.email-signup h2 {padding-bottom: 14px;}
+#snyHolidayOverlayMsg .blueCloseBtn {margin-top: 28px; background: #1058a2; color: #fff; font-size: 13px; padding: 9px 22px; position: absolute; bottom: 40px; left: 28px;}
+#snyHolidayOverlayMsg .blueCloseBtn:hover {text-decoration: none; cursor: pointer;}
+#snyHolidayOverlayMsg .kor-overlay-close {display: none;}
+
+div.ws-secondary-flag{ top: 25px; }
+
+/* Category Deep Links Module */
+.glbl_deepLinkCTA:before {background: url('../../img/global/snynaUsDeepLinkArrow_020214.png') no-repeat 0 0 transparent; content: "."; display: inline-block; overflow: hidden; vertical-align: middle; height: 11px; width: 11px;margin-right: 4px;}
+.imagePlaceHolderMinHeight { min-height: 500px; }
+
+.q4arrow:after {width: 20px; height: 21px; content: "."; overflow: hidden; display: inline-block; vertical-align: bottom; margin-left: 4px; text-indent: -9999px; background: url('../../img/global/sprites/snynaUs_Q4ArrowSprite.png') no-repeat 0px 0px transparent;}
+.q4arrow.purple,
+.glbl_purple {color: #946fb7 !important;}
+.q4arrow.purple:after {background-position: 0px 0px;}
+
+.q4arrow.blue,
+.glbl_blue {color: #16a3d2 !important;}
+.q4arrow.blue:after {background-position: -42px 0px;}
+
+.q4arrow.green,
+.glbl_green {color: #55bc84 !important;}
+.q4arrow.green:after {background-position: -21px 0px;}
+
+.q4arrow.yellow,
+.glbl_yellow {color: #d9ac3c !important;}
+.q4arrow.yellow:after {background-position: -63px 0px;}
+
+.q4arrow.pink,
+.glbl_pink {color: #ec6264 !important;}
+.q4arrow.pink:after {background-position: -84px 0px;}
+
+.q4arrow.orange,
+.glbl_orange {color: #e56638 !important;}
+.q4arrow.orange:after {background-position: -105px 0;}
