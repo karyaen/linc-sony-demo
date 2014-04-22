@@ -24,3 +24,7 @@ cd linc-sony-demo; npm install
 # Run the app using the default command gulp
 gulp
 ```
+
+## Screenshot
+
+![alt text](https://raw.githubusercontent.com/lithiumtech/linc-sony-demo/master/assets/lithium/screenshot.svg "Sony Demo Screenshot")
