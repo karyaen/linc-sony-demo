@@ -15,8 +15,9 @@
   },
   "homepage": "https://github.com/lithiumtech/linc-sony-demo",
   "dependencies": {
-    "connect": "^2.14.4",
     "gulp": "^3.6.1",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "connect-mobile-detection": "0.0.5",
+    "express": "^4.0.0"
   }
 }
