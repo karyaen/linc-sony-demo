@@ -1,0 +1,39 @@
+<div class="row" style="margin-bottom:1em;">
+	<div class="col-sm-1">
+		<img ng-src="images/{{icon}}.png" />
+	</div>
+	<div class="col-sm-3" style="margin-left:0.5em;" >
+		<strong style="font-size:small;">{{name}}</strong>
+		<p style="font-size:x-small;">Member since {{since}}</p>
+		<table width="100%">
+			<tr>
+				<td width="50%" style="font-size:x-small;">
+					Replies<br/>
+					<span style="color:green">{{replies}}</span>
+				</td>
+				<td width="50%" style="font-size:x-small;">
+					+K's<br/>
+					<span style="color:green">{{plusk}}</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-sm-7" style="margin-left:0.5em;">
+		<div class="post-holder" style="font-size:small;">
+		</div>
+		<div style="font-size:xx-small;border-bottom:1px solid #666;margin-bottom:0.5em;padding-top:0.5em;padding-bottom:0.5em;">
+			Posted {{posted}} &bullet;
+			<span style="color:#ccc;">Report as inappropriate</span>
+		</div>
+		<p style="font-size:x-small;">Top Reply &bullet;
+		<span style="color:#999;">{{topreply}}</span></p>
+		<div class="response-holder" style="font-size:small;">
+		</div>
+		<div style="margin-top:1em;">
+			<img src="images/klout.png" style="margin-right:2em;">
+			<button class="btn btn-default btn-xs">Comment</button>
+			<button class="btn btn-default btn-xs">Share</button>
+		</div>
+	</div>
+	<div class="transcluded" ng-transclude>
+</div>

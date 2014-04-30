@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default {{range==90?'active':''}}" ng-click="set_range(90)">90 day</button>
+      <button type="button" class="btn btn-default {{range==30?'active':''}}" ng-click="set_range(30)">30 day</button>
+      <button type="button" class="btn btn-default {{range==7?'active':''}}" ng-click="set_range(7)">7 days</button>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+        <span ng-show="chart=='price'">Average Price</span>
+        <span ng-show="chart=='activity'">User Count</span>
+      <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li class="{{chart=='price'?'active':''}}"><a ng-click="set_chart('price')">Average Price</a></li>
+        <li class="{{chart=='activity'?'active':''}}"><a ng-click="set_chart('activity')">User Count</a></li>
+      </ul>
+    </div>
+
+    <span ng-show="chart=='price'">{{average_pay|currency}}</span>
+
+    <div style="margin-left:2em;vertical-align:bottom;margin-top:1em;padding-top:1em;display:inline-block;">
+    <i class="glyphicon glyphicon-user" style="color:gray;font-size:large;"></i>
+    <i class="glyphicon glyphicon-user" style="color:gray;font-size:x-large;margin-left:-0.5em;"></i>
+    <i class="glyphicon glyphicon-user" style="color:gray;font-size:large;margin-left:-0.7em;"></i>
+    </div>
+
+    <span>{{average_users|number:0}}</span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <highchart id="payChart" config="payChartConfig" ng-show="chart=='price'"></highchart>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <highchart id="activityChart" config="activityChartConfig" ng-show="chart=='activity'"></highchart>
+  </div>
+</div>
+
+<div class="row" style="border-bottom: 1px solid #ccc;">
+  <div class="col-md-1" style="font-weight:bold;">
+    #
+  </div>
+  <div class="col-md-4" style="font-weight:bold;">
+    Name
+  </div>
+  <div class="col-md-2" style="font-weight:bold;">
+    Klout Score
+  </div>
+  <div class="col-md-3" style="font-weight:bold;">
+    Willing To Pay
+  </div>
+  <div class="col-md-2" style="font-weight:bold;">
+  </div>
+</div>
+
+<style>
+.even { background-color: #eee; }
+</style>
+
+<div class="row" ng-repeat="user in users" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
+  <div class="col-md-1" style="font-weight:bold;">
+    {{$index+1}}
+  </div>
+  <div class="col-md-4" style="font-weight:bold;">
+    <a href="#">{{user.name}}</a>
+  </div>
+  <div class="col-md-2" style="font-weight:bold;">
+    {{user.klout}}
+  </div>
+  <div class="col-md-3" style="font-weight:bold;">
+    {{user.price|currency}}
+  </div>
+  <div class="col-md-2" style="font-weight:bold;">
+    <button class="btn btn-xs">Send Coupon</button>
+  </div>
+</div>
