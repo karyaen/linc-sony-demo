@@ -274,6 +274,7 @@ angular.module('lwaAdminApp', [
       5: 210
     },
     total_stars: 0,
+    qa_total_questions: 32,
     qa_total: 27,
     qa_solved: 24,
     qa_solved_pct: 0

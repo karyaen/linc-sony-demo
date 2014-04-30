@@ -1,48 +1,8 @@
 <div class="row">
   <div class="col-md-8">
-	<h4>Wants</h4>
-    <highchart id="activityChart" config="activityChartConfig" style="height:200px;"></highchart>
-	<h4>Recent Activity</h4>
-  	<p><i style="font-size:small;">Updated 2 minutes ago</i></p>
-  	<activity icon="peter" name="Peter Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
-		<div class="post">
-			How many HDMI ports are on the back?
-		</div>
-		<div class="response">
-			There are four ports.
-		</div>
-  	</activity>
-  	<activity icon="gwen" name="Gwen Stacy" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Jason Adams">
-		<div class="post">
-			<img src="images/room1.png">
-			<p>Is there a digital tuner in this unit?</p>
-		</div>
-		<div class="response">
-			No. You need to have Cable, Satellite or your own Tuner. I suggest looking at Best Buy...
-		</div>
-  	</activity>
-  	<activity icon="harry" name="Harry Osborn" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
-		<div class="post">
-			<p>What do you recommend for a Sound bar?</p>
-		</div>
-		<div class="response">
-			I'm a big fan of the companion Sony HTCT370 as well as any Sonos unit.
-		</div>
-  	</activity>
-  	<activity icon="may" name="Mary Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
-		<div class="post">
-			<img src="images/room2.png">
-			<p>What is the best wall mount for the 55"?</p>
-		</div>
-		<div class="response">
-			Sanus Mounts are the best for the money. Amazon has the best prices.
-		</div>
-  	</activity>
-  </div>
-  <div class="col-md-4">
-  	<h4>Last 30 Days</h4>
-  	<p><a href="#/wants">{{last30.wants}} wants</a></p>
-  	<p>{{last30.total_stars}} stars</p>
+    <h4 style="border-bottom:1px solid #ccc;padding-bottom:0.25em;">Wants ({{last30.wants}})</h4>
+      <highchart id="activityChart" config="activityChartConfig" style="height:200px;"></highchart>
+  	<h4 style="border-bottom:1px solid #ccc;padding-bottom:0.25em;">Reviews ({{last30.total_stars}})</h4>
   	<table style="margin-bottom:2em;">
   		<tr>
   			<td><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"><img src="images/star.png"></td>
@@ -65,7 +25,47 @@
   			<td>{{last30.stars.1}}</td>
   		</tr>
   	</table>
-  	<p>{{last30.qa_total}} questions</p>
-  	<p>{{last30.qa_solved}} solved ({{last30.qa_solved_pct}}%)</p>
+    <h4 style="border-bottom:1px solid #ccc;padding-bottom:0.25em;">Questions + Answers ({{last30.qa_total_questions}})</h4>
+    <p>Answers ({{last30.qa_total}})</p>
+    <p>Solved ({{last30.qa_solved_pct}}%)</p>
+  	<p>Unsolved ({{last30.qa_total_questions-last30.qa_solved}})</p>
+  </div>
+  <div class="col-md-4">
+  <h4>Recent Activity</h4>
+    <p><i style="font-size:small;">Updated 2 minutes ago</i></p>
+    <activity icon="peter" name="Peter Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+    <div class="post">
+      How many HDMI ports are on the back?
+    </div>
+    <div class="response">
+      There are four ports.
+    </div>
+    </activity>
+    <activity icon="gwen" name="Gwen Stacy" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Jason Adams">
+    <div class="post">
+      <img src="images/room1.png">
+      <p>Is there a digital tuner in this unit?</p>
+    </div>
+    <div class="response">
+      No. You need to have Cable, Satellite or your own Tuner. I suggest looking at Best Buy...
+    </div>
+    </activity>
+    <activity icon="harry" name="Harry Osborn" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+    <div class="post">
+      <p>What do you recommend for a Sound bar?</p>
+    </div>
+    <div class="response">
+      I'm a big fan of the companion Sony HTCT370 as well as any Sonos unit.
+    </div>
+    </activity>
+    <activity icon="may" name="Mary Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+    <div class="post">
+      <img src="images/room2.png">
+      <p>What is the best wall mount for the 55"?</p>
+    </div>
+    <div class="response">
+      Sanus Mounts are the best for the money. Amazon has the best prices.
+    </div>
+    </activity>
   </div>
 </div>
