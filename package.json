@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "linc sony demo product page",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No tests yet\"" 
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,12 @@
     "gulp": "^3.6.1",
     "open": "0.0.5",
     "connect-mobile-detection": "0.0.5",
-    "express": "^4.0.0"
+    "express": "^4.0.0",
+    "gulp-util": "^2.2.14"
+  },
+  "devDependencies": {
+    "connect-livereload": "^0.4.0",
+    "tiny-lr": "0.0.5",
+    "gulp-livereload": "^1.3.1"
   }
 }
