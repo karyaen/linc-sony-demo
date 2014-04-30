@@ -2,4 +2,5 @@
 
 angular.module('lwaAdminApp')
 .controller('MainCtrl', function ($scope) {
+	$scope.$emit('tabChange','demand');
 });

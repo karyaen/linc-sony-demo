@@ -4,7 +4,7 @@
 		{
 			"path": ".",
             "folder_exclude_patterns": [".sass-cache","node_modules"],
-            "file_exclude_patterns": [".editorconfig",".jshintrc",".travis.yml",".bowerrc",".gitattributes",".gitignore"]
+            "file_exclude_patterns": [".editorconfig",".jshintrc",".travis.yml",".bowerrc",".gitattributes",".gitignore",".ruby-gemset",".ruby-version"]
 		}
 	]
 }

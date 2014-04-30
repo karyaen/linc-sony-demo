@@ -14,7 +14,8 @@
     <div class="container">
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
+    <li class="{{tab=='overview'?'active':''}}"><a ng-href="#/">Overview</a></li>
+    <li class="{{tab=='demand'?'active':''}}"><a ng-href="#/wants">Demand</a></li>
   </ul>
   <h3 class="text-muted">LWA Admin</h3>
 </div>
@@ -24,7 +25,9 @@
 <img src="http://store.sony.com/SNYNA_27/pimg/pSNYNA-XBR55X900A_main_v500.png" height="208" width="250">
 </div>
 <div class="col-md-7">
-<h4>XBR-55X900A</h4>
+<h4><select class="form-control">
+<option>XBR-55X900A</option>
+</select></h4>
 <p>55" Class (54.6" diag) XBR 4K Ultra HD TV</p>
 <p>Price: $2,999.99</p>
 <p>MSRP: $4,999.99</p>
@@ -43,6 +46,7 @@
     <script src="javascripts/angular-route.js"></script>
     <script src="javascripts/highcharts-ng.js"></script>
     <script src="javascripts/highcharts.js"></script>
+    <script src="javascripts/chance.js"></script>
     <script src="javascripts/app.js"></script>
     <script src="javascripts/main.js"></script>
     <script src="javascripts/home.js"></script>

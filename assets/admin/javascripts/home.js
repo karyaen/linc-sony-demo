@@ -2,5 +2,5 @@
 
 angular.module('lwaAdminApp')
 .controller('HomeCtrl', function($scope) {
-	return null;
+	$scope.$emit('tabChange','overview');
 });

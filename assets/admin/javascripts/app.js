@@ -1,31 +1,5 @@
 'use strict';
 
-var g_names = [
-  'Marian Munoz',
-  'Florence Bowman',
-  'Clyde Foster',
-  'Janet Walker',
-  'Donald Oceguera',
-
-  'Margaret Adams',
-  'Scott Coleman',
-  'Paulette Clough',
-  'Edna C. Greene',
-  'Jerry Hudson',
-
-  'Jared Whitson',
-  'Claudio Douglas',
-  'Daniel Brazil',
-  'Megan Delvalle',
-  'Susann Thompson',
-
-  'Bradley J. Freel',
-  'Anthony Williams',
-  'Kimberly Lacy',
-  'Leticia Fleming',
-  'Brain Johnson'
-];
-
 function generatePoints( count, start, end, randomness ) {
   var points = [];
   var slope = ( end - start ) / count;
@@ -103,10 +77,76 @@ angular.module('lwaAdminApp', [
   }
   $scope.range = 90;
 
-  $scope.chart = 'price';
+  $scope.tab = 'overview';
+  $scope.$on('tabChange',function(event,tab){
+    $scope.tab = tab;
+  });
+
+  $scope.chart = 'price_histogram';
   $scope.set_chart = function( chart ) {
     $scope.chart = chart;
   }
+
+  $scope.payHistogramConfig = {
+    series: [{
+          type: 'column',
+            name: 'Price',
+            data: [],
+            marker: {
+              enabled: false
+            },
+            events: {
+                'click': function( e ) {
+                  $scope.histogramClick( e.point.category );
+                }
+            }
+        }],
+        plotOptions: {
+            area: {
+                fillColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                    stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                    ]
+                },
+                lineWidth: 5,
+                marker: {
+                    enabled: false,
+                    symbol: null
+                },
+                shadow: false,
+                states: {
+                    hover: {
+                        lineWidth: 1
+                    }
+                },
+                threshold: null
+            }
+        },
+        xAxis: {
+            title: {
+                text: null
+            },
+            categories: []
+        },
+        legend: {
+            enabled: false
+        },
+        chart: {
+          type: 'column',
+            zoomType: 'x',
+            spacingRight: 20
+        },
+        yAxis: {
+            title: {
+                text: 'Count'
+            }
+        },
+        title: { text: '' },
+    loading: false,
+    useHighStocks: false
+  };
 
   $scope.payChartConfig = {
     series: [{
@@ -267,6 +307,41 @@ angular.module('lwaAdminApp', [
         average_users += $scope.data[i].total;
       }
 
+      var bucket_size = 100.0;
+
+      var min_pay = 10000;
+      var max_pay = 0;
+      for( var i = start; i < $scope.data.length; i++ ) {
+        var pay = Math.round( $scope.data[i].mean * 100.0 ) / 100.0;
+        if ( pay < min_pay ) min_pay = pay;
+        if ( pay > max_pay ) max_pay = pay;
+      }
+      min_pay = Math.floor( min_pay / bucket_size ) * bucket_size;
+      max_pay = Math.floor( max_pay / bucket_size ) * bucket_size;
+      var bucket_count = ( max_pay - min_pay ) / bucket_size;
+      var buckets = [];
+      var bucket_numbers = [];
+      $scope.bucket_sizes = {};
+      for( var b = 0; b < bucket_count; b++ ) {
+        buckets.push( 0 );
+        var buck = Math.round( min_pay + ( b * bucket_size ) );
+        bucket_numbers.push( buck );
+        $scope.bucket_sizes[ buck ] = 0;
+      }
+      for( var i = start; i < $scope.data.length; i++ ) {
+        var pay = Math.round( $scope.data[i].mean * 100.0 ) / 100.0;
+        var adj = Math.floor( pay / bucket_size ) * bucket_size;
+        var b = Math.floor( ( adj - min_pay ) / bucket_size );
+
+        $scope.bucket_sizes[ adj ] += 1;
+
+        buckets[ b ] += 1;
+      }
+      buckets.splice( buckets.length - 1, 1 );
+      bucket_numbers.splice( bucket_numbers.length - 1, 1 );
+      $scope.payHistogramConfig.series[0].data = buckets;
+      $scope.payHistogramConfig.xAxis.categories = bucket_numbers;
+
       if( avg_pay.length > 60 ) {
         avg_pay[ 15 ] = { marker: {
                     fillColor: '#FF0000',
@@ -292,6 +367,20 @@ angular.module('lwaAdminApp', [
 
       $scope.activityChartConfig.series[0].pointStart = first.timestamp;
       $scope.activityChartConfig.series[0].data = totals;
+  }
+
+  $scope.histogramClick = function( value ) {
+    $scope.users = [];
+    var max = $scope.bucket_sizes[ value ];
+    if ( max > 20 ) max = 20;
+    for( var u = 0; u < max; u++ ) {
+      $scope.users.push( {
+        name: chance.name(),
+        klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
+        price: value
+      })
+    }
+    $scope.$digest();
   }
 
   $scope.data = [];
@@ -323,11 +412,11 @@ angular.module('lwaAdminApp', [
   ]);
 
     $scope.users = [];
-    for( var u in g_names ) {
+    for( var u = 0; u < 20; u++ ) {
       var price = 3200 + ( ( Math.random() * 400 ) - 200 );
       price = Math.round( price / 100.0 ) * 100.0;
       $scope.users.push( {
-        name: g_names[ u ],
+        name: chance.name(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
         price: Math.round( price )
       })

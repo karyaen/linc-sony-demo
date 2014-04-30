@@ -8,12 +8,14 @@
 
     <div class="btn-group">
       <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-        <span ng-show="chart=='price'">Average Price</span>
+        <span ng-show="chart=='price'">Price Over Time</span>
+        <span ng-show="chart=='price_histogram'">Price Preference</span>
         <span ng-show="chart=='activity'">User Count</span>
       <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
-        <li class="{{chart=='price'?'active':''}}"><a ng-click="set_chart('price')">Average Price</a></li>
+        <li class="{{chart=='price'?'active':''}}"><a ng-click="set_chart('price')">Price Over Time</a></li>
+        <li class="{{chart=='price_histogram'?'active':''}}"><a ng-click="set_chart('price_histogram')">Price Preference</a></li>
         <li class="{{chart=='activity'?'active':''}}"><a ng-click="set_chart('activity')">User Count</a></li>
       </ul>
     </div>
@@ -32,13 +34,19 @@
 
 <div class="row">
   <div class="col-md-12">
-    <highchart id="payChart" config="payChartConfig" ng-show="chart=='price'"></highchart>
+    <highchart id="payChart" config="payChartConfig" ng-if="chart=='price'"></highchart>
   </div>
 </div>
 
 <div class="row">
   <div class="col-md-12">
-    <highchart id="activityChart" config="activityChartConfig" ng-show="chart=='activity'"></highchart>
+    <highchart id="payHistogram" config="payHistogramConfig" ng-if="chart=='price_histogram'"></highchart>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <highchart id="activityChart" config="activityChartConfig" ng-if="chart=='activity'"></highchart>
   </div>
 </div>
 
