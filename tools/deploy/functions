@@ -1,0 +1,37 @@
+# Purpose: same as what /etc/init.d/functions servers: a collection of
+# functions that other *bash* scripts should call. Include in other
+# scripts thus:
+# . functions
+SUCCESS=0
+FAILURE=1
+# gets my 'external' IP by connecting to known services
+# 1. ipecho.net 2. ifconfig.me
+# uses curl
+__my_external_ip () {
+  source1="http://ipecho.net/plain"
+  ip=$(curl ${source1} 2>/dev/null)
+  if [ $? -eq ${SUCCESS} ]; then
+    echo ${ip}
+    return ${SUCCESS};
+  fi
+  source2="http://ifconfig.me"
+  ip=$(curl ${source2} 2>/dev/null)
+  if [ $? -eq ${SUCCESS} ]; then
+    echo ${ip}
+    return ${SUCCESS};
+  fi
+  return ${FAILURE}
+}
+
+# external services should not be loaded unnecessarily, use caching
+__my_external_ip_cached() {
+  file=/tmp/my_external_ip_cached
+  if [ -r $file ]; then
+    cat ${file}
+    return ${SUCCESS}
+  else
+    ip=$(__my_external_ip)
+    echo $ip | tee $file
+    return ${SUCCESS}
+  fi
+}
