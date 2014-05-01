@@ -26,7 +26,8 @@ function buildWave( data, key, start, randomness, points ) {
 
 angular.module('lwaAdminApp', [
   'ngRoute',
-  'highcharts-ng'
+  'highcharts-ng',
+  'ui.bootstrap'
 ])
   .directive('activity',function(){
     return {
@@ -71,7 +72,7 @@ angular.module('lwaAdminApp', [
         redirectTo: '/'
       });
   })
-.controller('TopCtrl', function ( $scope ) {
+.controller('TopCtrl', function ( $scope, $location ) {
   $scope.set_range = function( range ) {
     $scope.range = range;
   }
@@ -186,6 +187,14 @@ angular.module('lwaAdminApp', [
             data: [],
             marker: {
               enabled: false
+            },
+            events: {
+              click: function( event ) {
+                $scope.chartClick();
+              },
+              selection: function( event ) {
+                $scope.chartClick();
+              }
             }
       }],
         plotOptions: {
@@ -221,8 +230,6 @@ angular.module('lwaAdminApp', [
             enabled: false
         },
         chart: {
-            zoomType: 'x',
-            spacingRight: 20
         },
         yAxis: {
             title: {
@@ -349,7 +356,6 @@ angular.module('lwaAdminApp', [
 
     var min = $scope.bucket_numbers[ low ];
     var max = $scope.bucket_numbers[ high ];
-    console.log( [low,high,min,max,$scope.bucket_sizes] );
     for( var u = 0; u < 20; u++ ) {
       var value = ( Math.random() * ( max - min ) ) + min;
       value = Math.floor( value / 100.0 ) * 100.0;
@@ -359,6 +365,7 @@ angular.module('lwaAdminApp', [
         price: value
       })
     }
+    $scope.updateSorting();
     $scope.$digest();
   }
 
@@ -390,6 +397,23 @@ angular.module('lwaAdminApp', [
     [ 10, 0 * mag ]
   ]);
 
+  $scope.sort_order = 'name';
+  $scope.sort = function( column ) {
+    $scope.sort_order = column;
+    $scope.updateSorting();
+  }
+  $scope.updateSorting = function() {
+    if ( $scope.sort_order == 'name' ) {
+      $scope.users = _.sortBy($scope.users,'name');
+    }
+    if ( $scope.sort_order == 'score' ) {
+      $scope.users = _.sortBy($scope.users,'klout');
+    }
+    if ( $scope.sort_order == 'pay' ) {
+      $scope.users = _.sortBy($scope.users,'price');
+    }
+  }
+
     $scope.users = [];
     for( var u = 0; u < 20; u++ ) {
       var price = 3200 + ( ( Math.random() * 400 ) - 200 );
@@ -398,9 +422,14 @@ angular.module('lwaAdminApp', [
         name: chance.name(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
         price: Math.round( price )
-      })
+      });
+      $scope.updateSorting();
     }
 
   $scope.$watch( 'range', function() { $scope.setup_chart(); } );
   $scope.$watch( 'data', function() { $scope.setup_chart(); } );
+
+  $scope.chartClick = function() {
+    document.location.href = '/admin/#/wants';
+  }
 });

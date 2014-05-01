@@ -50,20 +50,25 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-12" style="text-align:right;">
+      <button class="btn btn-xs">Send Coupons</button>
+      &nbsp;
+      <button class="btn btn-xs">Send Perks</button>
+  </div>
+</div>
+
 <div class="row" style="border-bottom: 1px solid #ccc;">
   <div class="col-md-1" style="font-weight:bold;">
-    #
   </div>
   <div class="col-md-4" style="font-weight:bold;">
-    Name
-  </div>
-  <div class="col-md-2" style="font-weight:bold;">
-    Klout Score
+    <a ng-click="sort('name')">Name <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
   </div>
   <div class="col-md-3" style="font-weight:bold;">
-    Willing To Pay
+    <a ng-click="sort('score')">Klout Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
   </div>
-  <div class="col-md-2" style="font-weight:bold;">
+  <div class="col-md-3" style="font-weight:bold;">
+    <a ng-click="sort('pay')">Willing To Pay <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'"></i></a>
   </div>
 </div>
 
@@ -73,18 +78,15 @@
 
 <div class="row" ng-repeat="user in users" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
   <div class="col-md-1" style="font-weight:bold;">
-    {{$index+1}}
+    <input type="checkbox" />
   </div>
   <div class="col-md-4" style="font-weight:bold;">
-    <a href="#">{{user.name}}</a>
+    <a>{{user.name}}</a>
   </div>
-  <div class="col-md-2" style="font-weight:bold;">
+  <div class="col-md-3" style="font-weight:bold;">
     {{user.klout}}
   </div>
   <div class="col-md-3" style="font-weight:bold;">
     {{user.price|currency}}
-  </div>
-  <div class="col-md-2" style="font-weight:bold;">
-    <button class="btn btn-xs">Send Coupon</button>
   </div>
 </div>
