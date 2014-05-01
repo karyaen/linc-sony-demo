@@ -80,6 +80,7 @@ angular.module('lwaAdminApp', [
   $scope.tab = 'overview';
   $scope.$on('tabChange',function(event,tab){
     $scope.tab = tab;
+    $scope.setup_chart();
   });
 
   $scope.chart = 'price_histogram';
@@ -89,63 +90,32 @@ angular.module('lwaAdminApp', [
 
   $scope.payHistogramConfig = {
     series: [{
-          type: 'column',
-            name: 'Price',
-            data: [],
-            marker: {
-              enabled: false
-            },
-            events: {
-                'click': function( e ) {
-                  $scope.histogramClick( e.point.category );
-                }
-            }
-        }],
-        plotOptions: {
-            area: {
-                fillColor: {
-                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
-                    stops: [
-                        [0, Highcharts.getOptions().colors[0]],
-                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                    ]
-                },
-                lineWidth: 5,
-                marker: {
-                    enabled: false,
-                    symbol: null
-                },
-                shadow: false,
-                states: {
-                    hover: {
-                        lineWidth: 1
-                    }
-                },
-                threshold: null
-            }
-        },
-        xAxis: {
-            title: {
-                text: null
-            },
-            categories: []
-        },
-        legend: {
-            enabled: false
-        },
-        chart: {
-          type: 'column',
-            zoomType: 'x',
-            spacingRight: 20
-        },
-        yAxis: {
-            title: {
-                text: 'Count'
-            }
-        },
-        title: { text: '' },
-    loading: false,
-    useHighStocks: false
+      type: 'column',
+      name: 'Price',
+      data: []
+    }],
+    xAxis: {
+      categories: []
+    },
+    chart: {
+      renderTo: 'payHistogram',
+      type: 'column',
+      zoomType: 'x',
+      events: {
+        selection: function(event) {
+          if (event.xAxis) {
+            $scope.histogramClick(Math.round(event.xAxis[0].min),Math.round(event.xAxis[0].max));
+            return false;
+          }
+        }
+      }
+    },
+    yAxis: {
+      title: {
+        text: 'Count'
+      }
+    },
+    title: { text: '' }
   };
 
   $scope.payChartConfig = {
@@ -321,12 +291,12 @@ angular.module('lwaAdminApp', [
       max_pay = Math.floor( max_pay / bucket_size ) * bucket_size;
       var bucket_count = ( max_pay - min_pay ) / bucket_size;
       var buckets = [];
-      var bucket_numbers = [];
+      $scope.bucket_numbers = [];
       $scope.bucket_sizes = {};
       for( var b = 0; b < bucket_count; b++ ) {
         buckets.push( 0 );
         var buck = Math.round( min_pay + ( b * bucket_size ) );
-        bucket_numbers.push( buck );
+        $scope.bucket_numbers.push( buck );
         $scope.bucket_sizes[ buck ] = 0;
       }
       for( var i = start; i < $scope.data.length; i++ ) {
@@ -339,9 +309,13 @@ angular.module('lwaAdminApp', [
         buckets[ b ] += 1;
       }
       buckets.splice( buckets.length - 1, 1 );
-      bucket_numbers.splice( bucket_numbers.length - 1, 1 );
+      $scope.bucket_numbers.splice( $scope.bucket_numbers.length - 1, 1 );
       $scope.payHistogramConfig.series[0].data = buckets;
-      $scope.payHistogramConfig.xAxis.categories = bucket_numbers;
+      $scope.payHistogramConfig.xAxis.categories = $scope.bucket_numbers;
+
+      if( $('#payHistogram').length > 0 ) {
+        new Highcharts.Chart($scope.payHistogramConfig);
+      }
 
       if( avg_pay.length > 60 ) {
         avg_pay[ 15 ] = { marker: {
@@ -370,11 +344,15 @@ angular.module('lwaAdminApp', [
       $scope.activityChartConfig.series[0].data = totals;
   }
 
-  $scope.histogramClick = function( value ) {
+  $scope.histogramClick = function( low, high ) {
     $scope.users = [];
-    var max = $scope.bucket_sizes[ value ];
-    if ( max > 20 ) max = 20;
-    for( var u = 0; u < max; u++ ) {
+
+    var min = $scope.bucket_numbers[ low ];
+    var max = $scope.bucket_numbers[ high ];
+    console.log( [low,high,min,max,$scope.bucket_sizes] );
+    for( var u = 0; u < 20; u++ ) {
+      var value = ( Math.random() * ( max - min ) ) + min;
+      value = Math.floor( value / 100.0 ) * 100.0;
       $scope.users.push( {
         name: chance.name(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
