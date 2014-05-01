@@ -2,7 +2,11 @@
 
 # A simple deploy script that Travis runs after ssh'ing into the AWS-EC2
 # instance. This script should be run as sudo.
-MY_DIR=`dirname $0`
+MY_DIR=$(dirname $0)
+
+. ${MY_DIR}/functions
+
+CLOUD_DEV_IP=$(__my_external_ip_cached)
 sudo service linc-sony-demo stop
 sudo killall node # for some reason stopping is not enough :-(
 cd ${MY_DIR}/../..
