@@ -27,7 +27,8 @@ function buildWave( data, key, start, randomness, points ) {
 angular.module('lwaAdminApp', [
   'ngRoute',
   'highcharts-ng',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.bootstrap.tpls'
 ])
   .directive('activity',function(){
     return {
@@ -65,8 +66,8 @@ angular.module('lwaAdminApp', [
         controller: 'HomeCtrl'
       })
       .when('/wants', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/demand.html',
+        controller: 'DemandCtrl'
       })
       .otherwise({
         redirectTo: '/'

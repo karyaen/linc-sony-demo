@@ -81,7 +81,7 @@
     <input type="checkbox" />
   </div>
   <div class="col-md-4" style="font-weight:bold;">
-    <a>{{user.name}}</a>
+    <a ng-click="open( user )">{{user.name}}</a>
   </div>
   <div class="col-md-3" style="font-weight:bold;">
     {{user.klout}}
@@ -90,3 +90,87 @@
     {{user.price|currency}}
   </div>
 </div>
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">
+        {{user.name}}
+          <span style="float:right"><img src="images/klout_lg.png"></span>
+        </h3>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div style="position:relative;height:85px;width:85px;">
+              <img src="images/peter.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
+              <img src="images/klout_bubble.png" style="position:absolute;top:45px;left:0px;">
+              <span style="position:absolute;top:48px;left:7px;font-size:15px;color:white;">
+                {{user.klout}}
+              </span>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div style="font-weight:bold">{{user.name}}</div>
+            <div>
+            Change agent and nice guy. Currently dateing @gwenstacy. (All opinions my own)
+            </div>
+            <div>
+              <img src="images/shield.png" style="margin-right:0.5em;">
+              <img src="images/shield.png" style="margin-right:0.5em;">
+              <img src="images/shield.png" style="margin-right:0.5em;">
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top:0.5em;">
+          <div class="col-md-4">
+            <div style="font-weight:bold;">
+              <span style="color:#E67D69;">+K&apos;s</span>
+              23
+            </div>
+            <div style="font-size:small;">
+              Sell All
+            </div>
+            <div style="margin-top:0.5em;font-weight:bold;">
+              <span style="color:#E67D69;">Wants</span>
+              45
+            </div>
+            <div>
+              Sony 55&quot; Class XBR...
+            </div>
+            <div>
+              Leica T Camera
+            </div>
+            <div>
+              Nike Free 3.0 2014
+            </div>
+            <div style="font-size:small;">
+              See All
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div style="font-weight:bold;">
+              <span style="color:#E67D69;">Sony products owned</span>
+              5
+            </div>
+            <div>
+              Bravia 46&quot; 4K
+            </div>
+            <div>
+              PS4
+            </div>
+            <div>
+              PS3
+            </div>
+            <div style="font-size:small;">
+              See All
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="ok()">View Profile</button>
+        <button class="btn btn-info" ng-click="cancel()"><img src="images/klout.png"> Send Perk</button>
+    </div>
+</script>
