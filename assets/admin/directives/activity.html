@@ -1,19 +1,21 @@
 <div class="row" style="margin-bottom:1em;">
 	<div class="col-md-1" style="margin-right:0.5em;">
-		<img ng-src="images/{{icon}}.png" /><br/>
+		<img ng-src="images/{{icon}}.png" width="40" height="40" /><br/>
 		<strong style="font-size:small;">{{name}}</strong>
 	</div>
 	<div class="col-md-9" style="margin-left:0.5em;">
 		<div class="post-holder" style="font-size:small;">
 		</div>
 		<div style="font-size:xx-small;margin-bottom:0.5em;padding-top:0.5em;padding-bottom:0.5em;">
-			Posted {{posted}}<br/>
+			Posted {{posted}} &bullet;
 			<span style="color:#ccc;">Report as inappropriate</span>
 		</div>
 		<div style="margin-top:1em;">
-			<img src="images/klout.png" style="margin-right:2em;"><br/>
-			<button class="btn btn-default btn-xs">Comment</button>
-			<button class="btn btn-default btn-xs">Share</button>
+			<button class="btn btn-default">Comment</button>
+			<button class="btn">
+				<img src="images/klout.png">
+				Send Perk
+			</button>
 		</div>
 	</div>
 	<div class="transcluded" ng-transclude>

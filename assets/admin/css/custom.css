@@ -1,0 +1,76 @@
+.navbar {
+	background-color: #352063;
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: #663399;
+}
+
+.navbar-inverse .navbar-nav > li > a
+{
+	color: #9B8FB3;
+	min-width: 160px;
+	text-align: center;
+}
+
+body {
+	padding-top: 50px;
+	background-color: #CECDF1;
+}
+
+.product-area {
+	background-color: white;
+}
+
+.content-area {
+	background-color: #DAD9F5;
+}
+
+.even {
+	background-color: #eee;
+}
+
+.well {
+	border: 1px solid #BFB2CD;
+	padding: 15px;
+	background: #F2F2F2;
+}
+
+.interior-section {
+	border-bottom: 1px solid #BFB2CD;
+}
+
+.highcharts-background {
+	background-color: #F2F2F2;
+	fill: #F2F2F2 !important;
+}
+
+.green-number {
+	color: #00CF00;
+	font-weight: normal;
+}
+
+.metric-numbers .col-md-4 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	line-height: normal;
+	height: 20px;
+}
+
+td.metric-orange {
+	padding-right: 1em;
+}
+.metric-orange {
+	color: #EB7D65;
+}
+
+.region-title {
+	text-transform: uppercase;
+}
+
+@media (min-width: 1200px) {
+  .container {
+  max-width: 1170px;
+}

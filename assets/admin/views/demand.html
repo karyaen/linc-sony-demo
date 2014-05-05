@@ -1,95 +1,363 @@
-<div class="row">
+<div class="row" style="padding-left:1em;padding-right:1em;margin-bottom:0px;">
   <div class="col-md-12">
-    <div class="btn-group">
-      <button type="button" class="btn btn-default {{range==90?'active':''}}" ng-click="set_range(90)">90 day</button>
-      <button type="button" class="btn btn-default {{range==30?'active':''}}" ng-click="set_range(30)">30 day</button>
-      <button type="button" class="btn btn-default {{range==7?'active':''}}" ng-click="set_range(7)">7 days</button>
+  <h3 class="region-title">Wants</h3>
+  </div>
+  <div class="col-md-12 well">
+    <div class="row interior-section" style="padding-bottom:10px;">
+      <div class="col-md-12">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default {{range==90?'active':''}}" ng-click="set_range(90)">90 day</button>
+          <button type="button" class="btn btn-default {{range==30?'active':''}}" ng-click="set_range(30)">30 day</button>
+          <button type="button" class="btn btn-default {{range==7?'active':''}}" ng-click="set_range(7)">7 days</button>
+        </div>
+
+        <div class="btn-group">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <span ng-show="chart=='price'">Price Over Time</span>
+            <span ng-show="chart=='price_histogram'">Price Preference</span>
+            <span ng-show="chart=='activity'">User Count</span>
+          <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li class="{{chart=='price'?'active':''}}"><a ng-click="set_chart('price')">Price Over Time</a></li>
+            <li class="{{chart=='price_histogram'?'active':''}}"><a ng-click="set_chart('price_histogram')">Price Preference</a></li>
+            <li class="{{chart=='activity'?'active':''}}"><a ng-click="set_chart('activity')">User Count</a></li>
+          </ul>
+        </div>
+          <img src="images/gear.png" style="float:right;padding-top:3px;">
+      </div>
     </div>
 
-    <div class="btn-group">
-      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-        <span ng-show="chart=='price'">Price Over Time</span>
-        <span ng-show="chart=='price_histogram'">Price Preference</span>
-        <span ng-show="chart=='activity'">User Count</span>
-      <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li class="{{chart=='price'?'active':''}}"><a ng-click="set_chart('price')">Price Over Time</a></li>
-        <li class="{{chart=='price_histogram'?'active':''}}"><a ng-click="set_chart('price_histogram')">Price Preference</a></li>
-        <li class="{{chart=='activity'?'active':''}}"><a ng-click="set_chart('activity')">User Count</a></li>
-      </ul>
+    <div class="row interior-section" style="padding-top:10px;padding-bottom:10px;">
+      <div class="col-md-9">
+        <highchart id="payChart" config="payChartConfig" ng-if="chart=='price'"></highchart>
+        <div id="payHistogram" ng-show="chart=='price_histogram'"></div>
+        <highchart id="activityChart" config="activityChartConfig" ng-if="chart=='activity'"></highchart>
+      </div>
+
+      <div class="col-md-3">
+        <span ng-show="chart=='price'">{{average_pay|currency}}</span>
+        <div style="margin-left:2em;vertical-align:bottom;margin-top:1em;padding-top:1em;display:inline-block;">
+        <i class="glyphicon glyphicon-user" style="color:gray;font-size:large;"></i>
+        <i class="glyphicon glyphicon-user" style="color:gray;font-size:x-large;margin-left:-0.5em;"></i>
+        <i class="glyphicon glyphicon-user" style="color:gray;font-size:large;margin-left:-0.7em;"></i>
+        </div>
+        <span>{{average_users|number:0}}</span>
+      </div>
+
     </div>
 
-    <span ng-show="chart=='price'">{{average_pay|currency}}</span>
-
-    <div style="margin-left:2em;vertical-align:bottom;margin-top:1em;padding-top:1em;display:inline-block;">
-    <i class="glyphicon glyphicon-user" style="color:gray;font-size:large;"></i>
-    <i class="glyphicon glyphicon-user" style="color:gray;font-size:x-large;margin-left:-0.5em;"></i>
-    <i class="glyphicon glyphicon-user" style="color:gray;font-size:large;margin-left:-0.7em;"></i>
+    <div class="row" style="padding-top:10px;">
+      <div class="col-md-12" style="text-align:right;">
+          <button class="btn btn-default">Bulk Perks</button>
+      </div>
     </div>
 
-    <span>{{average_users|number:0}}</span>
+    <div class="row" style="border-bottom: 1px solid #ccc;">
+      <div class="col-md-1" style="font-weight:bold;">
+      </div>
+      <div class="col-md-4" style="font-weight:bold;">
+        <a ng-click="sort('name')">Name <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
+      </div>
+      <div class="col-md-3" style="font-weight:bold;">
+        <a ng-click="sort('score')">Klout Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
+      </div>
+      <div class="col-md-3" style="font-weight:bold;">
+        <a ng-click="sort('pay')">Willing To Pay <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'"></i></a>
+      </div>
+    </div>
+
+    <div class="row" ng-repeat="user in users" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
+      <div class="col-md-1" style="font-weight:bold;">
+        <input type="checkbox" />
+      </div>
+      <div class="col-md-4" style="font-weight:bold;">
+        <a ng-click="open( user )">{{user.name}}</a>
+      </div>
+      <div class="col-md-3" style="font-weight:bold;">
+        {{user.klout}}
+      </div>
+      <div class="col-md-3" style="font-weight:bold;">
+        {{user.price|currency}}
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <highchart id="payChart" config="payChartConfig" ng-if="chart=='price'"></highchart>
+
+<div class="row" style="margin-top:0px;padding-top:0px;">
+  <div class="col-md-8">
+    <h3 class="region-title">Geo Activity</h3>
+
+    <div class="well">
+      <div class="row interior-section" style="padding-bottom:10px;">
+        <div class="col-md-12">
+          <select class="form-control" style="width:25%;display:inline;">
+          <option>USA</option>
+          </select>
+          <img src="images/gear.png" style="float:right;padding-top:3px;">
+        </div>
+      </div>
+      <div class="row" style="padding-top:10px;">
+        <div class="col-md-12" style="text-align:center;">
+          <img src="images/map.png" />
+        </div>
+      </div>
+      <div class="row metric-numbers">
+        <div class="col-md-4">
+          <h4 style="font-weight:normal;">Total Questions
+            <span class="green-number">(+3.4%)</span>
+          </h4>
+        </div>
+        <div class="col-md-4">
+          <h4 style="font-weight:normal;">Total Answers
+            <span class="green-number">(+6.4%)</span>
+          </h4>
+        </div>
+        <div class="col-md-4">
+          <h4 style="font-weight:normal;">Unsolved
+            <span class="green-number">(+2.4%)</span>
+          </h4>
+        </div>
+      </div>
+      <div class="row metric-numbers">
+        <div class="col-md-4">
+          <h4>23</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>48</h4>
+        </div>
+        <div class="col-md-4">
+          <h4>28</h4>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="region-title">Aggregate Product Score</h3>
+
+    <div class="well">
+      <div class="row interior-section" style="padding-bottom:10px;">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default active">Today</button>
+            <button type="button" class="btn btn-default">Week</button>
+            <button type="button" class="btn btn-default">Month</button>
+          </div>
+          <img src="images/gear.png" style="float:right;padding-top:3px;">
+        </div>
+      </div>
+      <div class="row" style="padding-top:10px;">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3">
+              <div style="background-color:#333333;width:188px;height:174px;vertical-align:middle;text-align:center;padding-top:25px;">
+                <img src="images/big_85.png">
+              </div>
+              <div style="background-color:#1D9B25;width:188px;height:43px;color:white;vertical-align:middle;text-align:center;line-height:43px;">
+                Highly Recommended
+              </div>
+            </div>
+            <div class="col-md-9" style="padding-left:2em;">
+              <table>
+                <tr>
+                  <td class="metric-orange">Size</td>
+                  <td><img src="images/bar.png"></td>
+                </tr>
+                <tr>
+                  <td class="metric-orange">Weight</td>
+                  <td><img src="images/bar.png">&nbsp;<img src="images/bar.png"></td>
+                </tr>
+                <tr>
+                  <td class="metric-orange">Picture Quality</td>
+                  <td><img src="images/bar.png">&nbsp;<img src="images/bar.png">&nbsp;<img src="images/bar.png">&nbsp;<img src="images/bar.png"></td>
+                </tr>
+                <tr>
+                  <td class="metric-orange">Audio</td>
+                  <td><img src="images/bar.png">&nbsp;<img src="images/bar.png"></td>
+                </tr>
+                <tr>
+                  <td class="metric-orange">Features</td>
+                  <td><img src="images/bar.png">&nbsp;<img src="images/bar.png"></td>
+                </tr>
+              </table>
+              <div style="text-align:right;margin-top:5.5em;">
+                <img src="images/grey_klout.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="region-title">Ratings Summary</h3>
+
+    <div class="col-md-6 well">
+      <div class="row interior-section" style="padding-bottom:10px;">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <button type="button" class="btn btn-default active">Today</button>
+            <button type="button" class="btn btn-default">Week</button>
+            <button type="button" class="btn btn-default">Month</button>
+          </div>
+          <img src="images/gear.png" style="float:right;padding-top:3px;">
+        </div>
+      </div>
+      <div class="row" style="padding-top:10px;">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-3" style="text-align:center;">
+              <div style="color:#FF9B10;font-size:34px;font-weight:bold;">4.8</div>
+              <div>(12,800)</div>
+            </div>
+            <div class="col-md-9" style="padding-left:2em;">
+              <table>
+                <tr>
+                  <td><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/orange_star.png"></td>
+                  <td style="padding-left:1em;">
+                    <div style="font-weight:bold;">200</div>
+                    <div style="background-color:#333333;width:120px;height:11px;position:relative;">
+                      <div style="background-color:#FF9B10;width:80px;height:11px;position:absolute;">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/grey_star.png"></td>
+                  <td style="padding-left:1em;">
+                    <div style="font-weight:bold;">800</div>
+                    <div style="background-color:#333333;width:120px;height:11px;position:relative;">
+                      <div style="background-color:#FF9B10;width:80px;height:11px;position:absolute;">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/grey_star.png"><img src="images/grey_star.png"></td>
+                  <td style="padding-left:1em;">
+                    <div style="font-weight:bold;">200</div>
+                    <div style="background-color:#333333;width:120px;height:11px;position:relative;">
+                      <div style="background-color:#FF9B10;width:50px;height:11px;position:absolute;">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="images/orange_star.png"><img src="images/orange_star.png"><img src="images/grey_star.png"><img src="images/grey_star.png"><img src="images/grey_star.png"></td>
+                  <td style="padding-left:1em;">
+                    <div style="font-weight:bold;">85</div>
+                    <div style="background-color:#333333;width:120px;height:11px;position:relative;">
+                      <div style="background-color:#FF9B10;width:30px;height:11px;position:absolute;">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="images/orange_star.png"><img src="images/grey_star.png"><img src="images/grey_star.png"><img src="images/grey_star.png"><img src="images/grey_star.png"></td>
+                  <td style="padding-left:1em;">
+                    <div style="font-weight:bold;">32</div>
+                    <div style="background-color:#333333;width:120px;height:11px;position:relative;">
+                      <div style="background-color:#FF9B10;width:20px;height:11px;position:absolute;">
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+    <h3 class="region-title">Questions</h3>
+
+    <div class="well">
+      <div class="row interior-section" style="padding-bottom:10px;">
+        <div class="col-md-12">
+          <div class="btn-group">
+            <select class="form-control" style="width:100%;display:inline;">
+              <option>in last hour</option>
+            </select>
+          </div>
+          <img src="images/gear.png" style="float:right;padding-top:3px;">
+        </div>
+      </div>
+      <div class="row interior-section" style="padding-top:10px;">
+        <div class="col-md-12">
+
+          <activity icon="peter" name="Peter Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+            <div class="post">
+              How many HDMI ports are on the back?
+            </div>
+            <div class="response">
+              There are four ports.
+            </div>
+          </activity>
+
+        </div>
+      </div>
+      <div class="row interior-section" style="padding-top:10px;">
+        <div class="col-md-12">
+
+          <activity icon="gwen" name="Gwen Stacy" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Jason Adams">
+            <div class="post">
+              <img src="images/room1.png">
+              <p>Is there a digital tuner in this unit?</p>
+            </div>
+            <div class="response">
+              No. You need to have Cable, Satellite or your own Tuner. I suggest looking at Best Buy...
+            </div>
+          </activity>
+
+        </div>
+      </div>
+      <div class="row interior-section" style="padding-top:10px;">
+        <div class="col-md-12">
+
+          <activity icon="harry" name="Harry Osborn" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+            <div class="post">
+              <p>What do you recommend for a Sound bar?</p>
+            </div>
+            <div class="response">
+              I'm a big fan of the companion Sony HTCT370 as well as any Sonos unit.
+            </div>
+          </activity>
+
+        </div>
+      </div>
+      <div class="row interior-section" style="padding-top:10px;">
+        <div class="col-md-12">
+
+          <activity icon="may" name="Mary Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+            <div class="post">
+              <img src="images/room2.png">
+              <p>What is the best wall mount for the 55"?</p>
+            </div>
+            <div class="response">
+              Sanus Mounts are the best for the money. Amazon has the best prices.
+            </div>
+          </activity>
+
+        </div>
+      </div>
+        <div class="row" style="padding-top:10px;">
+          <div class="col-md-12" style="text-align:center;">
+            <button class="btn btn-default">More</button>
+          </div>
+         </div>
+    </div>
+
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <div id="payHistogram" ng-show="chart=='price_histogram'"></div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <highchart id="activityChart" config="activityChartConfig" ng-if="chart=='activity'"></highchart>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12" style="text-align:right;">
-      <button class="btn btn-xs">Send Coupons</button>
-      &nbsp;
-      <button class="btn btn-xs">Send Perks</button>
-  </div>
-</div>
 
-<div class="row" style="border-bottom: 1px solid #ccc;">
-  <div class="col-md-1" style="font-weight:bold;">
-  </div>
-  <div class="col-md-4" style="font-weight:bold;">
-    <a ng-click="sort('name')">Name <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
-  </div>
-  <div class="col-md-3" style="font-weight:bold;">
-    <a ng-click="sort('score')">Klout Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
-  </div>
-  <div class="col-md-3" style="font-weight:bold;">
-    <a ng-click="sort('pay')">Willing To Pay <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'"></i></a>
-  </div>
-</div>
 
-<style>
-.even { background-color: #eee; }
-</style>
 
-<div class="row" ng-repeat="user in users" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
-  <div class="col-md-1" style="font-weight:bold;">
-    <input type="checkbox" />
-  </div>
-  <div class="col-md-4" style="font-weight:bold;">
-    <a ng-click="open( user )">{{user.name}}</a>
-  </div>
-  <div class="col-md-3" style="font-weight:bold;">
-    {{user.klout}}
-  </div>
-  <div class="col-md-3" style="font-weight:bold;">
-    {{user.price|currency}}
-  </div>
-</div>
+
 
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
@@ -103,7 +371,7 @@
         <div class="row">
           <div class="col-md-2">
             <div style="position:relative;height:85px;width:85px;">
-              <img src="images/peter.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
+              <img src="images/peter_lg.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
               <img src="images/klout_bubble.png" style="position:absolute;top:45px;left:0px;">
               <span style="position:absolute;top:48px;left:7px;font-size:15px;color:white;">
                 {{user.klout}}

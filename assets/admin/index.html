@@ -8,32 +8,59 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/custom.css">
     <!-- Testing CI -->
   </head>
 <body ng-app="lwaAdminApp" ng-controller="TopCtrl">
-    <div class="container">
-<div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="{{tab=='overview'?'active':''}}"><a ng-href="#/">Overview</a></li>
-    <li class="{{tab=='demand'?'active':''}}"><a ng-href="#/wants">Demand</a></li>
-  </ul>
-  <h3 class="text-muted">LWA Admin</h3>
-</div>
 
-<div class="row">
-<div class="col-md-5">
-<img src="http://store.sony.com/SNYNA_27/pimg/pSNYNA-XBR55X900A_main_v500.png" height="208" width="250">
-</div>
-<div class="col-md-7">
-<h4><select class="form-control">
+    <div class="container">
+    <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="images/lithium_purple.png" height="20" /></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="{{tab=='overview'?'active':''}}"><a ng-href="#/">Overview</a></li>
+            <li class="{{tab=='demand'?'active':''}}"><a ng-href="#/wants">Wants</a></li>
+            <li><a href="#/">Endorsements</a></li>
+            <li><a href="#/">Ratings</a></li>
+            <li><a href="#/">
+            <div style="width:1px;height:1px;position:relative;">
+                <img src="images/olivia.png" height="35" style="position:absolute;top:-6px;left:-12px;">
+            </div>
+            &nbsp;Leslie Green</a></li>
+            <li><a href="#/"><img src="images/gear_purple.png" height="20" style="float:left;"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+<div class="row product-area">
+<div class="col-md-3" style="margin-top:2em;">
+<h4>Product Insights For</h4>
+<div>
+<select class="form-control">
 <option>XBR-55X900A</option>
-</select></h4>
-<p>55" Class (54.6" diag) XBR 4K Ultra HD TV</p>
-<p>Price: $2,999.99</p>
-<p>MSRP: $4,999.99</p>
+</select>
 </div>
 </div>
-    	<div class="row">
+<div class="col-md-3" style="position:relative;">
+<img src="http://store.sony.com/SNYNA_27/pimg/pSNYNA-XBR55X900A_main_v500.png" height="208" width="250">
+<img src="images/85.png" style="position:absolute;top:130px;left:230px;">
+</div>
+<div class="col-md-6" style="margin-top:2em;">
+<h4>55" Class (54.6" diag) XBR 4K Ultra HD TV</h4>
+<p>Price: $2,999.99 MSRP: $4,999.99</p>
+</div>
+</div>
+    	<div class="row content-area">
 		    <div class="container" ng-view="">
 		    </div>
     	</div>
