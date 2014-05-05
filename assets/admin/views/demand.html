@@ -59,10 +59,10 @@
       <div class="col-md-4" style="font-weight:bold;">
         <a ng-click="sort('name')">Name <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
       </div>
-      <div class="col-md-3" style="font-weight:bold;">
+      <div class="col-md-2" style="font-weight:bold;">
         <a ng-click="sort('score')">Klout Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
       </div>
-      <div class="col-md-3" style="font-weight:bold;">
+      <div class="col-md-2" style="font-weight:bold;">
         <a ng-click="sort('pay')">Willing To Pay <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'"></i></a>
       </div>
     </div>
@@ -74,11 +74,17 @@
       <div class="col-md-4" style="font-weight:bold;">
         <a ng-click="open( user )">{{user.name}}</a>
       </div>
-      <div class="col-md-3" style="font-weight:bold;">
+      <div class="col-md-2" style="font-weight:bold;">
         {{user.klout}}
       </div>
-      <div class="col-md-3" style="font-weight:bold;">
+      <div class="col-md-2" style="font-weight:bold;">
         {{user.price|currency}}
+      </div>
+      <div class="col-md-2" style="text-align:center;">
+        <button class="btn btn-xs">
+          <img src="images/klout.png">
+          Send Perk
+        </button>
       </div>
     </div>
   </div>
@@ -287,7 +293,7 @@
       <div class="row interior-section" style="padding-top:10px;">
         <div class="col-md-12">
 
-          <activity icon="peter" name="Peter Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+          <activity icon="peter" first="Peter" last="Parker" name="Peter Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
             <div class="post">
               How many HDMI ports are on the back?
             </div>
@@ -301,7 +307,7 @@
       <div class="row interior-section" style="padding-top:10px;">
         <div class="col-md-12">
 
-          <activity icon="gwen" name="Gwen Stacy" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Jason Adams">
+          <activity icon="gwen" first="Gwen" last="Stacy" name="Gwen Stacy" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Jason Adams">
             <div class="post">
               <img src="images/room1.png">
               <p>Is there a digital tuner in this unit?</p>
@@ -316,7 +322,7 @@
       <div class="row interior-section" style="padding-top:10px;">
         <div class="col-md-12">
 
-          <activity icon="harry" name="Harry Osborn" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+          <activity icon="harry" first="Harry" last="Osborn" name="Harry Osborn" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
             <div class="post">
               <p>What do you recommend for a Sound bar?</p>
             </div>
@@ -330,7 +336,7 @@
       <div class="row interior-section" style="padding-top:10px;">
         <div class="col-md-12">
 
-          <activity icon="may" name="Mary Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
+          <activity icon="may" first="Mary" last="Parker" name="Mary Parker" since="2012" replies="22" plusk="3" posted="Apr 18, 2014" topreply="Sue Smith">
             <div class="post">
               <img src="images/room2.png">
               <p>What is the best wall mount for the 55"?</p>

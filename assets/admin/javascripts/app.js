@@ -36,6 +36,8 @@ angular.module('lwaAdminApp', [
       templateUrl: 'directives/activity.html',
       scope: {
         icon: '@icon',
+        first: '@first',
+        last: '@last',
         name: '@name',
         since: '@since',
         replies: '@replies',

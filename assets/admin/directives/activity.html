@@ -1,9 +1,30 @@
 <div class="row" style="margin-bottom:1em;">
-	<div class="col-md-1" style="margin-right:0.5em;">
-		<img ng-src="images/{{icon}}.png" width="40" height="40" /><br/>
-		<strong style="font-size:small;">{{name}}</strong>
+	<div class="col-md-2" style="text-align:center;">
+		<img ng-src="images/{{icon}}.png" width="40" height="40" />
 	</div>
-	<div class="col-md-9" style="margin-left:0.5em;">
+	<div class="col-md-3" style="">
+		<strong style="font-size:small;">{{first}}</strong><br/>
+		<span style="font-size:small;">{{last}}</span><br/>
+	</div>
+	<div class="col-md-2" style="">
+		+K's<br/>
+		<strong>{{plusk}}</strong>
+	    <div style="background-color:#333333;width:33px;height:8px;position:relative;">
+	      <div style="background-color:#FF9B10;width:16px;height:8px;position:absolute;">
+	      </div>
+	    </div>
+	</div>
+	<div class="col-md-2" style="">
+		Replies<br/>
+		<strong>{{replies}}</strong>
+	    <div style="background-color:#333333;width:33px;height:8px;position:relative;">
+	      <div style="background-color:#00CF0E;width:16px;height:8px;position:absolute;">
+	      </div>
+	    </div>
+	</div>
+</div>
+<div class="row" style="margin-bottom:1em;">
+	<div class="col-md-12" style="margin-left:0.5em;">
 		<div class="post-holder" style="font-size:small;">
 		</div>
 		<div style="font-size:xx-small;margin-bottom:0.5em;padding-top:0.5em;padding-bottom:0.5em;">
