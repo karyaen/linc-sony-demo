@@ -24,7 +24,7 @@ from:ci_bot@lcloud.com
 subject:Build Deployed: ${BUILD_ID}
 
 The ${BUILD_ID} has now been deployed.
-See: http://${CLOUD_DEV_IP}:3000
+See: http://${CLOUD_DEV_IP}
 
 - RnR CD
 
