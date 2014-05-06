@@ -363,7 +363,7 @@ angular.module('lwaAdminApp', [
       $scope.users.push( $scope.usersToAdd.shift() );
     } );
     if ( $scope.usersToAdd.length > 0 ) {
-      window.setTimeout( $scope.addUserToUsers, 30 );
+      window.setTimeout( $scope.addUserToUsers, 50 );
     }
   }
 
@@ -379,6 +379,7 @@ angular.module('lwaAdminApp', [
       $scope.usersToAdd.push( {
         id: $scope.next_user_id++,
         name: chance.name(),
+        email: chance.email(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
         price: value
       })
@@ -427,11 +428,15 @@ angular.module('lwaAdminApp', [
     }
     if ( $scope.sort_order == 'score' ) {
       $scope.users = _.sortBy($scope.users,'klout');
-      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'name');
+      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'klout');
     }
     if ( $scope.sort_order == 'pay' ) {
       $scope.users = _.sortBy($scope.users,'price');
-      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'name');
+      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'price');
+    }
+    if ( $scope.sort_order == 'email' ) {
+      $scope.users = _.sortBy($scope.users,'email');
+      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'email');
     }
   }
 
@@ -442,6 +447,7 @@ angular.module('lwaAdminApp', [
       $scope.users.push( {
         id: $scope.next_user_id++,
         name: chance.name(),
+        email: chance.email(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
         price: Math.round( price )
       });
