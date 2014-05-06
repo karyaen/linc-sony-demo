@@ -70,6 +70,25 @@ td.metric-orange {
 	text-transform: uppercase;
 }
 
+.person.ng-enter,
+.person.ng-leave {
+  -webkit-transition:1s linear all;
+  transition:1s linear all;
+}
+
+.person.ng-enter,
+.person.ng-leave.ng-leave-active {
+  opacity:0;
+}
+.person.ng-leave,
+.person.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.ng-hide {
+  display:none!important;
+}
+
 @media (min-width: 1200px) {
   .container {
   max-width: 1170px;

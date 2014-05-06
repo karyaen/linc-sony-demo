@@ -28,7 +28,8 @@ angular.module('lwaAdminApp', [
   'ngRoute',
   'highcharts-ng',
   'ui.bootstrap',
-  'ui.bootstrap.tpls'
+  'ui.bootstrap.tpls',
+  'ngAnimate'
 ])
   .directive('activity',function(){
     return {
@@ -354,7 +355,20 @@ angular.module('lwaAdminApp', [
       $scope.activityChartConfig.series[0].data = totals;
   }
 
+  $scope.next_user_id = 1;
+
+  $scope.usersToAdd = [];
+  $scope.addUserToUsers = function() {
+    $scope.$apply( function() {
+      $scope.users.push( $scope.usersToAdd.shift() );
+    } );
+    if ( $scope.usersToAdd.length > 0 ) {
+      window.setTimeout( $scope.addUserToUsers, 30 );
+    }
+  }
+
   $scope.histogramClick = function( low, high ) {
+    $scope.usersToAdd = [];
     $scope.users = [];
 
     var min = $scope.bucket_numbers[ low ];
@@ -362,14 +376,15 @@ angular.module('lwaAdminApp', [
     for( var u = 0; u < 20; u++ ) {
       var value = ( Math.random() * ( max - min ) ) + min;
       value = Math.floor( value / 100.0 ) * 100.0;
-      $scope.users.push( {
+      $scope.usersToAdd.push( {
+        id: $scope.next_user_id++,
         name: chance.name(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
         price: value
       })
     }
     $scope.updateSorting();
-    $scope.$digest();
+    $scope.addUserToUsers();
   }
 
   $scope.data = [];
@@ -408,12 +423,15 @@ angular.module('lwaAdminApp', [
   $scope.updateSorting = function() {
     if ( $scope.sort_order == 'name' ) {
       $scope.users = _.sortBy($scope.users,'name');
+      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'name');
     }
     if ( $scope.sort_order == 'score' ) {
       $scope.users = _.sortBy($scope.users,'klout');
+      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'name');
     }
     if ( $scope.sort_order == 'pay' ) {
       $scope.users = _.sortBy($scope.users,'price');
+      $scope.usersToAdd = _.sortBy($scope.usersToAdd,'name');
     }
   }
 
@@ -422,6 +440,7 @@ angular.module('lwaAdminApp', [
       var price = 3200 + ( ( Math.random() * 400 ) - 200 );
       price = Math.round( price / 100.0 ) * 100.0;
       $scope.users.push( {
+        id: $scope.next_user_id++,
         name: chance.name(),
         klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
         price: Math.round( price )

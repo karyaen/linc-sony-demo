@@ -30,9 +30,9 @@
 
     <div class="row interior-section" style="padding-top:10px;padding-bottom:10px;">
       <div class="col-md-9">
-        <highchart id="payChart" config="payChartConfig" ng-if="chart=='price'"></highchart>
-        <div id="payHistogram" ng-show="chart=='price_histogram'"></div>
-        <highchart id="activityChart" config="activityChartConfig" ng-if="chart=='activity'"></highchart>
+        <highchart style="height:250px;" id="payChart" config="payChartConfig" ng-if="chart=='price'"></highchart>
+        <div style="height:250px;" id="payHistogram" ng-show="chart=='price_histogram'"></div>
+        <highchart style="height:250px;" id="activityChart" config="activityChartConfig" ng-if="chart=='activity'"></highchart>
       </div>
 
       <div class="col-md-3">
@@ -54,9 +54,7 @@
     </div>
 
     <div class="row" style="border-bottom: 1px solid #ccc;">
-      <div class="col-md-1" style="font-weight:bold;">
-      </div>
-      <div class="col-md-4" style="font-weight:bold;">
+      <div class="col-md-4" style="font-weight:bold;padding-left:3em;">
         <a ng-click="sort('name')">Name <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
       </div>
       <div class="col-md-2" style="font-weight:bold;">
@@ -67,11 +65,9 @@
       </div>
     </div>
 
-    <div class="row" ng-repeat="user in users" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
-      <div class="col-md-1" style="font-weight:bold;">
-        <input type="checkbox" />
-      </div>
+    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
       <div class="col-md-4" style="font-weight:bold;">
+        <input type="checkbox" />
         <a ng-click="open( user )">{{user.name}}</a>
       </div>
       <div class="col-md-2" style="font-weight:bold;">
