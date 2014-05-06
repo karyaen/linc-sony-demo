@@ -720,13 +720,13 @@ class="ws-group sny-product-header sny-stickyheader"
 class="ws-group gd-row sny-product-head-content" 
 >
   <style>
-    .flag2 {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:50px;height:50px;padding-bottom:5px;background: transparent url(../../lithium/flag2.svg) no-repeat center top;text-align:center;line-height:45px;vertical-align:middle}
+    .flag2 {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:50px;height:50px;padding-bottom:5px;background: transparent url(../../lithium/linc-sony-score.png) no-repeat center top;text-align:center;line-height:45px;vertical-align:middle}
     .flag2 .score{font:39px / 67px 'LatoBlack','Helvetica Neue',Helvetica,Arial,sans-serif;color:#fff;}
 
     .flag2 {
       float: left;
-      width: 70px;
-      height: 70px;
+      width: 75px;
+      height: 75px;
       margin-right: 10px;
     }
 
@@ -751,7 +751,7 @@ class="ws-group gd-row sny-product-head-content"
 class="ws-group sny-product-info-social" 
 >
     <div class="flag2">
-      <span class="score">65</span>
+      <span class="score"></span>
     </div>
 
     <h2 class="ws-product-title fn" data-dynamic-block-name="Title" data-dynamic-block-id="tG0KmUBwUVIAAAFBykMv3S8v">55" Class (54.6" diag) XBR 4K Ultra HD TV</h2><h2 style="font-size: 12px; display: inline-block; margin: 0;"><div class="ws-product-item-number">
@@ -927,13 +927,139 @@ value="$ 2,999.99" />
  
  
  
-</div></div><div 
+</div>
+
+</div>
+
+
+    <div
 class="ws-group" 
-><div class="ws-group-contents"></div></div><div 
+><div class="ws-group-contents"></div></div>
+
+
+    <div
 class="ws-group" 
-><div class="ws-group-contents"><div class="ws-add-to-cart-container" data-dynamic-block-name="ProductNotificationTrigger" data-dynamic-block-id="os4KmUBw_5MAAAFBBaQv3S8v" data-hijax="true"></div></div></div></div></div></div></div><div 
-class="ws-group gd-row sny-product-background" 
-><div class="ws-group-contents gd-row-contents sny-product-background-contents"><div 
+><div class="ws-group-contents"><div class="ws-add-to-cart-container" data-dynamic-block-name="ProductNotificationTrigger" data-dynamic-block-id="os4KmUBw_5MAAAFBBaQv3S8v" data-hijax="true"></div></div></div></div></div>
+
+
+<style type="text/css">
+  #klout-score-hover {
+    display: none;
+    margin-top: 8px;
+    position: absolute;
+    width: 575px;
+  }
+  #klout-score-hover .outer-div {
+    position: relative;
+    padding: 5px;
+    height: 190px;
+    background-color: #FFFFFF;
+    border: 1px solid #339933;
+  }
+  #klout-score-hover img {
+    display: inline-block;
+  }
+  #klout-score-hover .score {
+    height: 190px;
+    width: 165px;
+  }
+  #klout-score-hover .stats {
+    height: 160px;
+    width: 395px;
+    vertical-align: top;
+  }
+
+
+  #klout-score-hover {
+    position: relative;
+    top: 1px;
+    left: auto;
+    bottom: auto;
+  }
+  #klout-score-hover  .arrow {
+    border: 1px solid #${color_midtone_50};
+    position: absolute;
+  }
+  #klout-score-hover > .arrow,
+  #klout-score-hover > .arrow::after {
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+  #klout-score-hover > .arrow {
+    border-width: 11px;
+  }
+  #klout-score-hover > .arrow::after {
+    border-width: 10px;
+  }
+  #klout-score-hover > .arrow {
+    left: 55%;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: ;
+    top: -11px;
+  }
+  #klout-score-hover > .arrow::after {
+    content: " ";
+    top: 1px;
+    margin-left: -10px;
+    border-top-width: 0;
+    border-bottom-color: #${color_background};
+  }
+</style>
+<script type="text/javascript">
+  bindEvent('onload', function() {
+    var opacityItems = [];
+    opacityItems.push($('body > .ws-group'));
+    opacityItems.push($('body > .sny-footer'));
+
+    function setOpacity(percentage) {
+      for(var i=0; i< opacityItems.length; i++) {
+        opacityItems[i].css({opacity: percentage});
+      }
+    }
+
+    jQuery('.flag2').hover(function (e) {
+        // calculate position
+        var kloutElm = jQuery('#klout-score-hover');
+        var headElm = jQuery('div.sny-product-head-content');
+        if(headElm && headElm.position()) {
+          var leftMargin = headElm.css('marginLeft');
+          kloutElm.css({left: leftMargin});
+        }
+        kloutElm.show();
+        setOpacity(.15);
+
+        var backgroundElm = $('.sny-product-testimonial').css({opacity: .15});
+      },
+      function (e) {
+        jQuery('#klout-score-hover').hide();
+        setOpacity(1);
+      });
+  });
+</script>
+  <div id="klout-score-hover">
+    <div class="outer-div">
+      <img class="score" src="/lithium/linc-sony-score-100.png" >
+      <img class="stats" src="/lithium/linc-sony-score-stats.png">
+      <div class="arrow"></div>
+    </div>
+  </div>
+</div> <!-- end sticky header -->
+
+
+</div> <!--end anchor
+
+
+
+
+<div
+class="ws-group gd-row sny-product-background"
+><div class="ws-group-contents gd-row-contents sny-product-background-contents"><div
 class="ws-group sny-badges-and-logos" 
 ><div class=" sny-product-badge"><div class="sny-first-logo">
 <img src="../gsi/static/WFS/SNYNA-SNYUS-Site/-/SNYNA/en_US/Images/Logos/BADGE_4K_Ultra.png"
