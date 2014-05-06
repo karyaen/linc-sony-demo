@@ -29,12 +29,12 @@
     </div>
 
     <div class="row interior-section" style="padding-top:10px;padding-bottom:10px;">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <highchart style="height:250px;" id="payChart" config="payChartConfig" ng-if="chart=='price'"></highchart>
         <div style="height:250px;" id="payHistogram" ng-show="chart=='price_histogram'"></div>
         <highchart style="height:250px;" id="activityChart" config="activityChartConfig" ng-if="chart=='activity'"></highchart>
       </div>
-
+<!--
       <div class="col-md-3">
         <span ng-show="chart=='price'">{{average_pay|currency}}</span>
         <div style="margin-left:2em;vertical-align:bottom;margin-top:1em;padding-top:1em;display:inline-block;">
@@ -44,7 +44,7 @@
         </div>
         <span>{{average_users|number:0}}</span>
       </div>
-
+-->
     </div>
 
     <div class="row" style="padding-top:10px;">
@@ -54,19 +54,25 @@
     </div>
 
     <div class="row" style="border-bottom: 1px solid #ccc;">
-      <div class="col-md-4" style="font-weight:bold;padding-left:3em;">
-        <a ng-click="sort('name')">Name <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
+      <div class="col-md-4 column-header" style="font-weight:bold;padding-left:3em;">
+        <a ng-click="sort('name')">Lead <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
       </div>
-      <div class="col-md-2" style="font-weight:bold;">
-        <a ng-click="sort('score')">Klout Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
+      <div class="col-md-2 column-header" style="font-weight:bold;">
+        <a ng-click="sort('score')"><img src="images/klout_micro.png"> Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
       </div>
-      <div class="col-md-2" style="font-weight:bold;">
+      <div class="col-md-2 column-header" style="font-weight:bold;">
         <a ng-click="sort('pay')">Willing To Pay <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'"></i></a>
+      </div>
+      <div class="col-md-2 column-header" style="font-weight:bold;">
+        <a ng-click="sort('email')">Email <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='email'"></i></a>
+      </div>
+      <div class="col-md-2 column-header">
+        Action
       </div>
     </div>
 
-    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'">
-      <div class="col-md-4" style="font-weight:bold;">
+    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'">
+      <div class="col-md-4 lead-name" style="font-weight:bold;">
         <input type="checkbox" />
         <a ng-click="open( user )">{{user.name}}</a>
       </div>
@@ -75,6 +81,9 @@
       </div>
       <div class="col-md-2" style="font-weight:bold;">
         {{user.price|currency}}
+      </div>
+      <div class="col-md-2" style="font-weight:bold;">
+        {{user.email}}
       </div>
       <div class="col-md-2" style="text-align:center;">
         <button class="btn btn-xs">
