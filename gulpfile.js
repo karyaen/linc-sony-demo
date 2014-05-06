@@ -7,7 +7,7 @@ var livereload = require('gulp-livereload');
 var openPath;
 var openBrowser;
 var env;
-
+var port = 3000; //default: 3000
 /*
  * Set up the app mode based on either the NODE_ENV
  * env var or the --prod command line parameter. Default
@@ -17,6 +17,7 @@ if (process.env.NODE_ENV) {
   env = process.env.NODE_ENV;
 } else if (gutil.env.hasOwnProperty('prod')) {
   env = 'prod';
+  port = 80;
 } else {
   env = 'development';
 }
@@ -91,7 +92,7 @@ gulp.task('app', function () {
     res.sendfile(file);
   });
 
-  app.listen(3000, function () {
+  app.listen(port, function () {
     /*
      * When in development mode listen for file changes to
      * trigger the livereload server. Also, opens a browser after
@@ -105,7 +106,7 @@ gulp.task('app', function () {
         lrServer.changed(file.path);
       });
 
-      nOpen('http://localhost:3000/' + openPath, openBrowser);
+      nOpen('http://localhost:' + port +'/' + openPath, openBrowser);
     }
   });
 });
