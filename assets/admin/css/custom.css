@@ -88,6 +88,23 @@ td.metric-orange {
 	color: black;
 }
 
+.nav-tabs > li {
+	background: none;
+	border: none;
+}
+
+.nav-tabs > li.active {
+	border: none;
+}
+
+.nav-tabs > li > a {
+	border: none !important;
+}
+
+.nav-tabs > li.active > a {
+	border-bottom: 6px solid blue !important;
+}
+
 .person {
 	border-bottom: 1px solid #C4C4C4
 }

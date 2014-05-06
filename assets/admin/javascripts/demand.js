@@ -23,6 +23,11 @@ angular.module('lwaAdminApp')
 
 var ModalInstanceCtrl = function ($scope, $modalInstance, user) {
   $scope.user = user;
+  $scope.perksMode = false;
+
+  $scope.sendPerk = function() {
+    $scope.perksMode = true;
+  }
 
   $scope.ok = function () {
     $modalInstance.close();

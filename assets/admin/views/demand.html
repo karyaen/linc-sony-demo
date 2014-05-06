@@ -367,9 +367,6 @@
 
 
 
-
-
-
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
         <h3 class="modal-title">
@@ -379,8 +376,9 @@
     </div>
     <div class="modal-body">
       <div class="container">
+
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-1">
             <div style="position:relative;height:85px;width:85px;">
               <img src="images/peter_lg.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
               <img src="images/klout_bubble.png" style="position:absolute;top:45px;left:0px;">
@@ -389,10 +387,10 @@
               </span>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-4">
             <div style="font-weight:bold">{{user.name}}</div>
             <div>
-            Change agent and nice guy. Currently dateing @gwenstacy. (All opinions my own)
+            Change agent and nice guy. Currently dating @gwenstacy. (All opinions my own)
             </div>
             <div>
               <img src="images/shield.png" style="margin-right:0.5em;">
@@ -401,8 +399,9 @@
             </div>
           </div>
         </div>
-        <div class="row" style="margin-top:0.5em;">
-          <div class="col-md-4">
+
+        <div class="row" style="margin-top:0.5em;" ng-hide="perksMode">
+          <div class="col-md-3">
             <div style="font-weight:bold;">
               <span style="color:#E67D69;">+K&apos;s</span>
               23
@@ -427,7 +426,7 @@
               See All
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-3">
             <div style="font-weight:bold;">
               <span style="color:#E67D69;">Sony products owned</span>
               5
@@ -446,10 +445,47 @@
             </div>
           </div>
         </div>
+
+        <div class="row" style="margin-top:0.5em;" ng-show="perksMode">
+          <div class="col-md-5">
+            <tabset>
+              <tab heading="Product">
+                <table width="100%">
+                  <td width="50%">
+                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
+                      Product 1
+                    </div>
+                  </td>
+                  <td width="50%">
+                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
+                      Product 2
+                    </div>
+                  </td>
+                </table>
+              </tab>
+              <tab heading="Discount">
+                <table width="100%">
+                  <td width="50%">
+                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
+                      Discount 1
+                    </div>
+                  </td>
+                  <td width="50%">
+                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
+                      Discount 2
+                    </div>
+                  </td>
+                </table>
+              </tab>
+            </tabset>
+          </div>
+        </div>
+
       </div>
     </div>
     <div class="modal-footer">
         <button class="btn btn-default" ng-click="ok()">View Profile</button>
-        <button class="btn btn-info" ng-click="cancel()"><img src="images/klout.png"> Send Perk</button>
+        <button class="btn btn-info" ng-click="sendPerk()" ng-hide="perksMode"><img src="images/klout.png"> Send Perk</button>
+        <button class="btn btn-info" ng-show="perksMode"><img src="images/klout.png"> Perk Him</button>
     </div>
 </script>
