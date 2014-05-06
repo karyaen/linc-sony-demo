@@ -945,12 +945,15 @@ class="ws-group"
 <style type="text/css">
   #klout-score-hover {
     display: none;
-    margin-top: 8px;
     position: absolute;
-    width: 575px;
   }
   #klout-score-hover .outer-div {
     position: relative;
+  }
+  #klout-score-hover .inner-div {
+    width: 575px;
+    position:absolute;
+    margin-top: 8px;
     padding: 5px;
     height: 190px;
     background-color: #FFFFFF;
@@ -1044,9 +1047,11 @@ class="ws-group"
 </script>
   <div id="klout-score-hover">
     <div class="outer-div">
-      <img class="score" src="/lithium/linc-sony-score-100.png" >
-      <img class="stats" src="/lithium/linc-sony-score-stats.png">
-      <div class="arrow"></div>
+      <div class="inner-div">
+        <img class="score" src="/lithium/linc-sony-score-100.png" >
+        <img class="stats" src="/lithium/linc-sony-score-stats.png">
+        <div class="arrow"></div>
+      </div>
     </div>
   </div>
 </div> <!-- end sticky header -->
