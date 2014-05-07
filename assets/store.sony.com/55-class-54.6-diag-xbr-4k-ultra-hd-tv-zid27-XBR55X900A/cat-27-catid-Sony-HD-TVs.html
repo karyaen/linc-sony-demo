@@ -1427,42 +1427,36 @@
     </div>
 
     <style type="text/css">
-
+      #klout-score-hover {
+        position: relative;
+        top: 1px;
+        left: auto;
+        bottom: auto;
+        visibility: hidden;
+      }
       #klout-score-hover .inner-div {
+        height: 190px;
         width: 575px;
         position: absolute;
         margin-top: 8px;
         padding: 30px 20px;
-        height: 190px;
         background-color: #FFFFFF;
         border: 1px solid #339933;
+        z-index: 100;
       }
-
       #klout-score-hover img {
         display: inline-block;
       }
-
       #klout-score-hover .score {
         height: 190px;
         width: 165px;
       }
-
       #klout-score-hover .stats {
         height: 160px;
         width: 395px;
         padding-left: 10px;
         vertical-align: top;
       }
-
-      #klout-score-hover {
-        position: relative;
-        top: 1px;
-        left: auto;
-        bottom: auto;
-        z-index: 99;
-        display:none;
-      }
-
       #klout-score-hover .inner-div .arrow {
         border: 1px solid #339933;
         position: absolute;
@@ -1523,19 +1517,18 @@
 
         jQuery('.flag2').hover(function (e) {
             // calculate position
-            var kloutElm = jQuery('#klout-score-hover');
+            var kloutElm = jQuery('#klout-score-hover').show();
             var headElm = jQuery('div.sny-product-head-content');
+            var leftMargin = 0;
             if (headElm && headElm.position()) {
-              var leftMargin = headElm.css('marginLeft');
-              kloutElm.css({left: leftMargin});
+              leftMargin = headElm.css('marginLeft');
+              //kloutElm.css("left", leftMargin).css("z-index", 150);
             }
-            kloutElm.show();
             setOpacity(.15);
-
-            var backgroundElm = $('.sny-product-testimonial').css({opacity: .15});
+            kloutElm.css('visibility', 'visible').css("left", leftMargin).css("z-index", 150).show();
           },
           function (e) {
-            jQuery('#klout-score-hover').hide();
+            jQuery('#klout-score-hover').css('visibility', 'hidden');
             setOpacity(1);
           });
       });
