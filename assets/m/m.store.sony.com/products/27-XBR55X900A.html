@@ -121,23 +121,6 @@
 
 
     <div id="mainContent" role="main">
-      
-<div class="breadcrumbs-container hidden">
-  <ul class="breadcrumbs">
-    
-    <li class="crumb "><a href="http://m.store.sony.com/" class="breadcrumb">Home</a></li>
-    
-    <li class="crumb "><a href="http://m.store.sony.com/categories/televisions~cat-27-catid-Televisions" class="breadcrumb">Televisions</a></li>
-    
-    <li class="crumb "><a href="http://m.store.sony.com/categories/all-led-hdtvs~cat-27-catid-Sony-HD-TVs" class="breadcrumb">All LED HDTVs</a></li>
-    
-    <li class="crumb "><a href="http://m.store.sony.com/categories/-~cat-27-catid-All-XBR-Series-TVs" class="breadcrumb">XBR Series 4K Ultra HD TVs</a></li>
-    
-    <li class="crumb "><a href="27-XBR55X900A.html" class="breadcrumb">55&quot; Class (54.6&quot; diag) XBR 4K Ultra HD TV</a></li>
-    
-    
-  </ul>
-</div>
 
       
 <script>
@@ -1206,9 +1189,7 @@
     
     
     <div data-ss-component="button">Videos</div>
-    <div data-ss-component="content" class="videos">
-      <div data-href="/products/videos/w0xMOC~oTl5F7IMQsgE" class="video-request"><img src="../../pro.sony.com.edgesuite.net/tp/thumbnails/Sony_Electronics_Production_-_Sony_Store_VMS/XBR65X850A_UHDTV_60_H264_151x85_151x85_62934083693.jpg" /></div><div data-href="/products/videos/w0xMOC~xMJ7yylrjAES" class="video-request"><img src="../../pro.sony.com.edgesuite.net/tp/thumbnails/Sony_Electronics_Production_-_Sony_Store_VMS/Sony_4K_X900_640x360_151x85_151x85_48482883818.jpg" /></div><div data-href="/products/videos/w0xMOC~0mpOZ2XMqTmL" class="video-request"><img src="../../pro.sony.com.edgesuite.net/tp/thumbnails/Sony_Electronics_Production_-_Sony_Store_VMS/TRILUMINOS_130325-FINAL_high_151x85_151x85_48993859728.jpg" /></div>
-    </div>
+
     
     <div data-ss-component="button" id="reviewsButton">Ratings & Reviews <span class="total-reviews"></span></div>
     <div data-ss-component="content" id="reviewsContent" data-ss-ajax-url="http://reviews.brandingbrand.com/v1/sony/XBR55X900A.json">
@@ -1217,177 +1198,15 @@
   <span>Loading</span>
 </div>
 <div class="reviews-modifiers-container"></div>
-<div class="reviews-summary-container"></div>
+
 <div class="reviews-container"></div>
 
-      <li:reviews-widget href="http://54.193.114.254:1337/products/3/reviews"></li:reviews-widget>
+     <li:reviews-widget href="http://54.193.114.254:1337/products/3/reviews"></li:reviews-widget>
 
-<script type="text/x-handlebars" data-template-name="reviewsSummary"><div id="reviewsSummary">
-  <h2>Reviews Summary</h2>
-  <div class="ratings">
-    {{#if ratings.overall}}
-      {{rating ratings.overall.value size="large" show_value="true"}}
-    {{/if}}
-
-    {{#if ratings.individuals}}
-    {{#each ratings.individuals}}
-      {{rating value style="dashes" size="large" label=title from=from to=to max=max}}
-    {{/each}}
-    {{/if}}
-  </div>
-
-  {{#if recommended}}
-  <div class="recommended-total">
-    <span class="label">Recommended by:</span>
-    <span class="value" data-percent="{{percent recommended totalReviews toFixed="0"}}">
-      {{percent recommended totalReviews toFixed="0"}}% of reviewers
-    </span>
-  </div>
-  {{/if}}
-
-  {{#if histogram}}
-  <div id="ratingsGraph">
-    <h3>Ratings Distribution</h3>
-    <ul class="ratings-distribution">
-      {{#each histogram}}
-      <li>
-        <span class="label">{{@key}}</span>
-        <span class="rating-bar">
-          <span style="width: {{percent this ../totalReviews}}%"></span>
-        </span>
-        <span class="percent">{{this}}</span>
-      </li>
-      {{/each}}
-    </ul>
-  </div>
-  {{/if}}
-
-  {{#if attributes}}
-  <div id="reviewAttributes">
-    {{#each attributes}}
-    <h3 class="label {{key}}">{{name}}</h3>
-    <ul class="inline attributes-list">
-      {{#each values}}
-      <li>{{name}}&nbsp;<span class="total">({{total}})</span></li>
-      {{/each}}
-    </ul>
-    {{/each}}
-  </div>
-  {{/if}}
-
-</div>
-</script>
-<script type="text/x-handlebars" data-template-name="review"><article class="review">
-
-  <header class="review-header">
-
-    {{#if ratings}}
-      <div class="ratings">
-        {{#if ratings.overall}}
-          {{rating ratings.overall.value max=ratings.overall.max size="large"}}
-        {{/if}}
-
-        {{#if ratings.individuals}}
-          {{#each ratings.individuals}}
-            {{rating value max=max style="dashes" label=title}}
-          {{/each}}
-        {{/if}}
-      </div>
-    {{/if}}
-
-    {{#if title}}
-      <h3 class="review-title">{{{title}}}</h3>
-    {{/if}}
-
-    {{#if date}}
-      <p class="std-p review-date">{{date date format="DD MMMM YYYY"}}</p>
-    {{/if}}
-
-  </header>
-
-  <div class="review-content">
-
-    {{#if description}}
-      <p class="std-p review-body">
-        {{{description}}}
-      </p>
-    {{/if}}
-
-    {{#if recommended}}
-      <div class="recommended">
-        I recommend this product.
-      </div>
-    {{/if}}
-
-  </div>
-
-  {{#if author}}
-    <footer class="review-footer reviewer">
-
-      <div class="author">
-        <span class="name">{{author.name}}</span>
-        {{#if author.location}}
-          <span class="location">{{{author.location}}}</span>
-        {{/if}}
-        {{#if author.age}}
-          <span class="age">{{{author.age}}}</span>
-        {{/if}}
-        {{#if author.gender}}
-          <span class="gender">{{{author.gender}}}</span>
-        {{/if}}
-      </div>
-
-      {{#if author.attributes}}
-        <div class="attributes">
-          <dl class="inline">
-            {{#each author.attributes}}
-              <dt>{{@key}}</dt>
-              <dd>{{this}}</dd>
-            {{/each}}
-          </dl>
-        </div>
-      {{/if}}
-
-    </footer>
-  {{/if}}
-
-</article></script>
-<script type="text/x-handlebars" data-template-name="noReviews"><p class="std-p">No reviews.</p></script>
-<script type="text/x-handlebars" data-template-name="reviewsModifiers"><div class="reviews-modifiers">
-  {{#each filters}}
-    <div class="reviews-option reviews-filter" data-title="{{title}}">
-      <label class="pseudo-select">
-        <div class="select">Filter by <span class="title">{{title}}</span></div>
-        <select multiple>
-          <option value="">Filter by {{title}}</option>
-          {{#each options}}
-            <option value="{{href}}" {{#if active}}selected{{/if}} {{#unless count}}disabled{{/unless}}>{{value}} ({{count}})</option>
-          {{/each}}
-        </select>
-      </label>
-    </div>
-  {{/each}}
-  {{#if sorts}}
-    <div class="reviews-option reviews-sort">
-      <label class="pseudo-select">
-        <div class="select">Sort by</div>
-        <select>
-          <option value="">Sort by</option>
-          {{#each sorts}}
-            <option value="{{href}}" {{#if active}}selected{{/if}} {{#if active}}selected{{/if}}>{{title}}</option>
-          {{/each}}
-        </select>
-      </label>
-    </div>
-  {{/if}}
-  {{#if is_filtering}}
-    <a href="27-XBR55X900A.html#" class="remove-filters">
-      <span class="icon"></span>
-      <span class="label">Remove All Filters</span>
-    </a>
-  {{/if}}
-</div>
-</script>
+<script type="text/x-handlebars" data-template-name="reviewsSummary"></script>
+<script type="text/x-handlebars" data-template-name="review"></script>
+<script type="text/x-handlebars" data-template-name="noReviews"></script>
+<script type="text/x-handlebars" data-template-name="reviewsModifiers"></script>
 
     </div>
   </div>
@@ -2331,81 +2150,6 @@
   
     
       <!-- OMNITURE: BEGIN -->
-      <script>	        (function () {
-	            if (!window.GSI) window.GSI={};
-	            if (!GSI.Analytics) GSI.Analytics={};
-	            
-                   GSI.Analytics.setListenerUrl("http://store.sony.com/gsi/webstore/WFS/SNYNA-SNYUS-Site/en_US/-/USD/ViewAnalytics-ViewJSONResponse?OmnitureEnable=true");
-                
-	            function identity(a) { return a; }
-				if(!GSI.Analytics.Data)	GSI.Analytics.Data={};
-			        GSI.Analytics.Data.Context = identity({"context":{"siteID":"SNYNA-SNYUS-Site","channelID":"SNYUS","locale":"en_US","applicationID":"gsi.sny.na.us.webstore","applicationType":"Webstore","deviceInformation":"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.1.5) Gecko/20091102 Firefox/3.5.5 BrandingBrand","currencyCode":"USD","domainName":"store.sony.com","eventTimeStamp":"1398205034990","browserID":"4IIKnEB7daoAAAFFzOgPa4uC","sessionID":"8094017b29e71dd39e6b9fcbb0da5dcac5f406ed080940e4a86feafcb3ecc20c","countryCode":"US","analyticsUser":{"id":"yKwKnEB73zoAAAFFKOMPa4uC","analyticsUserType":"GUEST"}},"eventMap":{"PageViewEvent":{"pageTitle":"Product Detail:  27-XBR55X900A: 55\" Class (54.6\" diag) XBR 4K Ultra HD TV","siteSection":"Product Detail","pageType":"Product Detail","referringSource":"Site Navigation","referringMedium":"Internal Domain","pageURL":"http://store.sony.com/gsi/webstore/WFS/SNYNA-SNYUS-Site/en_US/-/USD/ViewProduct-Start?SKU\u003d27-XBR55X900A","eventType":"PAGE_VIEW_EVENT"},"ProductViewEvent":{"product":{"id":"27-XBR55X900A","longTitle":"55\" Class (54.6\" diag) XBR 4K Ultra HD TV","shortTitle":"55\" Class (54.6\" diag) XBR 4K Ultra HD TV","mfgStyleCode":"","type":"STANDARD","available":false,"category":{"currentCategoryID":"All-XBR-Series-TVs","currentCategoryName":"XBR Series 4K Ultra HD TVs","parentCategoryID":"Sony-HD-TVs","parentCategoryName":"All LED HDTVs","catalogID":"27","catalogName":"Sony Standard US","topLevelCategoryID":"27","topLevelCategoryName":"Sony Standard US"},"price":{"currencyMnemonic":"USD","value":2999.99},"globalItemIdentifier":"40462411","productImageURL":"http://store.sony.com/SNYNA_27/pimg/pSNYNA-XBR55X900A_main_enh.png","productCartImageURL":"http://store.sony.com/SNYNA_27/pimg/pSNYNA-XBR55X900A_main_2xs.png","defaultVariationId":"27-XBR55X900A"},"productFindingMethod":"Other Channels","eventType":"PRODUCT_VIEW_EVENT"}}});
-		            GSI.Analytics.Data.Response = identity({"responses":{"OmnitureResponse":{"reportItems":[{"type":"TRAFFIC","value":"Product Detail","var":"prop2"},{"type":"CONVERSION","value":"en_US","var":"eVar6"},{"type":"TRAFFIC","value":"Internal Domain","var":"prop4"},{"type":"TRAFFIC","value":"Webstore"},{"type":"TRAFFIC","value":"US","var":"prop15"},{"type":"TRAFFIC","value":"USD","var":"prop14"},{"type":"TRAFFIC","value":"en_US","var":"prop13"},{"type":"TRAFFIC","value":"Site Navigation","var":"prop3"},{"type":"METRIC","var":"prodView"},{"type":"TRAFFIC","value":"Product Detail: 27-XBR55X900A: 55\" Class (54.6\" diag) XBR 4K Ultra HD TV","var":"pageName"},{"type":"TRAFFIC","value":"SNYUS","var":"prop17"},{"type":"METRIC","var":"event1"},{"type":"TRAFFIC","value":"SNYUS"},{"type":"TRAFFIC","value":"Webstore","var":"prop16"}],"products":[{"attribute":"27-XBR55X900A","reports":[{"type":"PRODUCT_CONVERSION","value":"Other Channels","var":"evar33"}]}],"properties":{"currencyCode":"USD","internalDomains":["gspt.net","imageg.net","gsipartners.com"],"encoding":"UTF-8","account":s_account}}}});
-					
-		            
-					
-		            GSI.Analytics.Data.SiteSection = "Product Detail";
-		            GSI.Analytics.Data.ReferringMedium = "Internal Domain";
-		            GSI.Analytics.Data.ReferringSource = "Site Navigation";
-		            
-		            
-		            
-	        })();
-	</script>
-      <script>
-        (function() {
-          var a = function() {
-            if (!GSI.Analytics.Omniture.t) {
-                return setTimeout(arguments.callee, 50);
-            }
-            
-            GSI.Analytics.Context.parse(GSI.Analytics.Data.Context);
-            new GSI.Analytics.Processor(GSI.Analytics.Data.Response);
-          };
-          
-          if (jQuery) {
-            jQuery(a);
-          }
-        })();
-      </script>
-      <!-- OMNITURE: END   -->
-      <!-- CLEARSALEING: BEGIN -->
-      <script>
-        if (GSI && GSI.Analytics && GSI.Analytics.Data && GSI.Analytics.Data.Response
-          && GSI.Analytics.Data.Response.responses && GSI.Analytics.Data.Response.responses.OmnitureResponse
-          && GSI.Analytics.Data.Response.responses.OmnitureResponse.reportItems) {
-          
-          var count = GSI.Analytics.Data.Response.responses.OmnitureResponse.reportItems.length;
-          
-          for (var i=0;i<count;i++) {
-            if (GSI.Analytics.Data.Response.responses.OmnitureResponse.reportItems[i].var === 'prop2') {
-              csCustomCategory = GSI.Analytics.Data.Response.responses.OmnitureResponse.reportItems[i].value
-            }
-            
-            if (GSI.Analytics.Data.Response.responses.OmnitureResponse.reportItems[i].var === 'pageName') {
-              csPageConfiguration = GSI.Analytics.Data.Response.responses.OmnitureResponse.reportItems[i].value
-            }
-          }
-        }
-        var csAccountId = '16010276'; //test account
-        
-        if (window.location.host === 'm.store.sony.com') {
-          csAccountId = '16009909'; //prod account
-        }
-        
-        (function() {
-          var cs = document.createElement('script'); cs.type = 'text/javascript'; cs.async = true;
-          cs.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dsa.csdata1.com/data/js/' + csAccountId + '/csgather.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(cs, s);
-        })();
-      </script>
-      <!-- CLEARSALEING: END -->
-    
-  
-
-  
-
-
 
   <script type="text/x-handlebars-template" data-template-name="slideNav">
   <nav data-col="{{column}}" class="not-root">
