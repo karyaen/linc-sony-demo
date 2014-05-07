@@ -1416,16 +1416,17 @@
     </div>
     </div>
 
+    <div id="klout-score-hover">
+
+      <div class="inner-div">
+        <img class="score" src="/lithium/linc-sony-score-100.png">
+        <img class="stats" src="/lithium/linc-sony-score-stats.png">
+        <div class="arrow"></div>
+
+      </div>
+    </div>
 
     <style type="text/css">
-      #klout-score-hover {
-        display: none;
-        position: absolute;
-      }
-
-      #klout-score-hover .outer-div {
-        position: relative;
-      }
 
       #klout-score-hover .inner-div {
         width: 575px;
@@ -1458,15 +1459,16 @@
         left: auto;
         bottom: auto;
         z-index: 99;
+        display:none;
       }
 
-      #klout-score-hover .arrow {
+      #klout-score-hover .inner-div .arrow {
         border: 1px solid #339933;
         position: absolute;
       }
 
-      #klout-score-hover > .arrow,
-      #klout-score-hover > .arrow::after {
+      #klout-score-hover .inner-div > .arrow,
+      #klout-score-hover .inner-div > .arrow::after {
         box-sizing: border-box;
         position: absolute;
         display: block;
@@ -1476,28 +1478,28 @@
         border-style: solid;
       }
 
-      #klout-score-hover > .arrow {
+      #klout-score-hover .inner-div > .arrow {
         border-width: 11px;
       }
 
-      #klout-score-hover > .arrow::after {
+      #klout-score-hover .inner-div > .arrow::after {
         border-width: 10px;
       }
 
-      #klout-score-hover > .arrow {
-        left: 55%;
+      #klout-score-hover .inner-div > .arrow {
+        left: 36px;
         margin-left: -11px;
         border-top-width: 0;
         border-bottom-color: #339933;
         top: -11px;
       }
 
-      #klout-score-hover > .arrow::after {
+      #klout-score-hover .inner-div > .arrow::after {
         content: " ";
         top: 1px;
         margin-left: -10px;
         border-top-width: 0;
-        border-bottom-color: #339933;
+        border-bottom-color: #ffffff;
       }
     </style>
     <script type="text/javascript">
@@ -1519,34 +1521,25 @@
         }
 
         jQuery('.flag2').hover(function (e) {
-              // calculate position
-              var kloutElm = jQuery('#klout-score-hover');
-              var headElm = jQuery('div.sny-product-head-content');
-              if (headElm && headElm.position()) {
-                var leftMargin = headElm.css('marginLeft');
-                kloutElm.css({left: leftMargin});
-              }
-              kloutElm.show();
-              setOpacity(.15);
+            // calculate position
+            var kloutElm = jQuery('#klout-score-hover');
+            var headElm = jQuery('div.sny-product-head-content');
+            if (headElm && headElm.position()) {
+              var leftMargin = headElm.css('marginLeft');
+              kloutElm.css({left: leftMargin});
+            }
+            kloutElm.show();
+            setOpacity(.15);
 
-              var backgroundElm = $('.sny-product-testimonial').css({opacity: .15});
-            },
-            function (e) {
-              jQuery('#klout-score-hover').hide();
-              setOpacity(1);
-            });
+            var backgroundElm = $('.sny-product-testimonial').css({opacity: .15});
+          },
+          function (e) {
+            jQuery('#klout-score-hover').hide();
+            setOpacity(1);
+          });
       });
     </script>
-    <div id="klout-score-hover">
-      <div class="outer-div">
-        <div class="inner-div">
-          <img class="score" src="/lithium/linc-sony-score-100.png">
-          <img class="stats" src="/lithium/linc-sony-score-stats.png">
 
-          <div class="arrow"></div>
-        </div>
-      </div>
-    </div>
     </div>
     <!-- end sticky header -->
 
