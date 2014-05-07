@@ -1457,10 +1457,11 @@
         top: 1px;
         left: auto;
         bottom: auto;
+        z-index: 99;
       }
 
       #klout-score-hover .arrow {
-        border: 1px solid # ${color_midtone_50};
+        border: 1px solid #339933;
         position: absolute;
       }
 
@@ -1487,7 +1488,7 @@
         left: 55%;
         margin-left: -11px;
         border-top-width: 0;
-        border-bottom-color:;
+        border-bottom-color: #339933;
         top: -11px;
       }
 
@@ -1496,14 +1497,20 @@
         top: 1px;
         margin-left: -10px;
         border-top-width: 0;
-        border-bottom-color: # ${color_background};
+        border-bottom-color: #339933;
       }
     </style>
     <script type="text/javascript">
       bindEvent('onload', function () {
         var opacityItems = [];
-        opacityItems.push($('body > .ws-group'));
-        opacityItems.push($('body > .sny-footer'));
+        opacityItems.push($('body .ws-content').not(':has(.sny-header-anchor)'));
+        opacityItems.push($('body .ws-content > .sny-product-background'));
+        opacityItems.push($('body .ws-content > .sny-footer'));
+        opacityItems.push($('body .ws-content > .sny-fighter-middle'));
+        opacityItems.push($('body .ws-content > .sny-fighter-middle'));
+        opacityItems.push($('body .ws-content > .sny-product-testimonial-break'));
+        opacityItems.push($('body .ws-content > .sny-product-tabset-group'));
+        opacityItems.push($('body .ws-content .sonyCustomerCare'));
 
         function setOpacity (percentage) {
           for (var i = 0; i < opacityItems.length; i++) {
