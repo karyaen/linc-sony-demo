@@ -66,6 +66,187 @@
     	</div>
     </div>
 
+
+
+
+<script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">
+        {{user.name}}
+          <span style="float:right"><img src="images/klout_lg.png"></span>
+        </h3>
+    </div>
+    <div class="modal-body">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-1">
+            <div style="position:relative;height:85px;width:85px;">
+              <img src="images/peter_lg.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
+              <img src="images/klout_bubble.png" style="position:absolute;top:45px;left:0px;">
+              <span style="position:absolute;top:48px;left:7px;font-size:15px;color:white;">
+                {{user.klout}}
+              </span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div style="font-weight:bold">{{user.name}}</div>
+            <div>
+            Change agent and nice guy. Currently dating @gwenstacy. (All opinions my own)
+            </div>
+            <div>
+              <img src="images/shield.png" style="margin-right:0.5em;">
+              <img src="images/shield.png" style="margin-right:0.5em;">
+              <img src="images/shield.png" style="margin-right:0.5em;">
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:0.5em;" ng-hide="perksMode">
+          <div class="col-md-3">
+            <div style="font-weight:bold;">
+              <span style="color:#E67D69;">+K&apos;s</span>
+              23
+            </div>
+            <div style="font-size:small;">
+              Sell All
+            </div>
+            <div style="margin-top:0.5em;font-weight:bold;">
+              <span style="color:#E67D69;">Wants</span>
+              45
+            </div>
+            <div>
+              Sony 55&quot; Class XBR...
+            </div>
+            <div>
+              Leica T Camera
+            </div>
+            <div>
+              Nike Free 3.0 2014
+            </div>
+            <div style="font-size:small;">
+              See All
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div style="font-weight:bold;">
+              <span style="color:#E67D69;">Sony products owned</span>
+              5
+            </div>
+            <div>
+              Bravia 46&quot; 4K
+            </div>
+            <div>
+              PS4
+            </div>
+            <div>
+              PS3
+            </div>
+            <div style="font-size:small;">
+              See All
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:0.5em;" ng-show="perksMode">
+          <div class="col-md-1" style="padding-top:2em;">
+            <strong style="font-size:large;"><span style="color:#E67D69;">Perks</span> 2</strong>
+          </div>
+
+          <div class="col-md-2">
+            <div style="text-align:center;border-radius:10px;vertical-align:middle;height:132px;width:125px;line-height:130px;border:1px solid #ccc;">
+              <img src="images/headphones.png" />
+            </div>
+            <div>
+              <input type="checkbox" style="float:left;height:20px;margin-right:5px;" checked>
+              <div style="padding-top:5px;float:left;">MDR-HW300K<br/>Stereo Headphones</div>
+            </div>
+         </div>
+
+          <div class="col-md-2">
+            <div style="text-align:center;border-radius:10px;vertical-align:middle;height:132px;width:125px;line-height:130px;border:1px solid #ccc;">
+              <img src="images/coins.png" />
+            </div>
+            <div>
+              <input type="checkbox" style="float:left;height:20px;margin-right:5px;">
+              <div style="padding-top:5px;">$15.00 off</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="ok()">View Profile</button>
+        <button class="btn btn-info" ng-click="sendPerk()" ng-hide="perksMode"><img src="images/klout.png"> Send Perk</button>
+        <button class="btn btn-info" ng-show="perksMode"><img src="images/klout.png"> Perk Him</button>
+    </div>
+</script>
+
+
+
+<script type="text/ng-template" id="offerDalog.html">
+    <div class="modal-body">
+      <div class="container coin-container">
+
+        <div class="row">
+          <div class="col-md-6" style="font-size:x-large;color:green;">
+            Offers will be sent to
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div style="font-size:x-large;font-weight:bold;">{{count}} customers</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div style="height:7px;width:90%;position:relative;background-color:black;">
+            <div style="height:7px;position:absolute;width:300px;background-color:#F83C98"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="font-size:large;margin-top:1em;">
+          <div class="col-md-3" style="padding-top:0.5em;padding-bottom:0.5em;">
+            who want to pay between
+          </div>
+          <div class="col-md-2" style="background-color:black;color:white;padding-top:0.5em;padding-bottom:0.5em;">
+            {{low|currency}}-{{high|currency}}
+          </div>
+        </div>
+        <div class="row" style="font-size:large;margin-top:1em;">
+          <div class="col-md-3" style="padding-top:0.5em;padding-bottom:0.5em;">
+            at a discount of
+          </div>
+          <div class="col-md-2" style="background-color:black;color:white;padding-top:0.5em;padding-bottom:0.5em;">
+            {{discount|currency}}
+          </div>
+        </div>
+
+        <div class="row" style="font-size:large;margin-top:1em;">
+          <div class="col-md-5" style="font-size:large;font-weight:bold;">
+            Total discount:
+          </div>
+        </div>
+        <div class="row" style="font-size:xx-large;">
+          <div class="col-md-5" style="font-weight:bold;">
+            {{discount*count|currency}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal-footer">
+        <img src="images/klout_lg.png" style="float:left;">
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-success" ng-click="cancel()">Send offers</button>
+    </div>
+</script>
+
+
     <script src="javascripts/jquery.js"></script>
     <script src="javascripts/lodash.js"></script>
     <script src="javascripts/bootstrap.js"></script>
