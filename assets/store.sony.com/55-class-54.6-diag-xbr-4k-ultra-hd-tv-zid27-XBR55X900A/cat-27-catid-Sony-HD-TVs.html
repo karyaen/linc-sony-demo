@@ -1393,7 +1393,7 @@
         <div class="header">
           <div class="flag3"></div>
           <div class="content">
-            <div> <b>85</b>/100 | <b>300</b> +K's</div>
+            <div> <span class="bold">85</span>/100 | <span class="bold">300</span> +K's</div>
             <div>Highly Recommended</div>
           </div>
         </div>
@@ -1460,7 +1460,6 @@
         position: absolute;
         margin-top: 8px;
         padding: 25px;
-        padding-right: 0px;
         background-color: #FFFFFF;
         border: 1px solid #b5b5b5;
         -webkit-box-shadow: 0 0 12px #b5b5b5;
@@ -1492,6 +1491,9 @@
         vertical-align: top;
         margin-top: 20px;
       }
+      #klout-score-hover .content > .bold {
+        font-weight: bold;
+      }
       #klout-score-hover .progress-bar-wrapper > div {
         display: inline-block;
       }
@@ -1499,9 +1501,9 @@
         background-color: #EEEEEE;
         width: 52%;
         display: inline-block;
+        margin: 6px 0px;
       }
       #klout-score-hover .progress-bar div {
-
         background-color: #339933;
         height: 8px;
       }
