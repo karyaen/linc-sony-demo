@@ -71,10 +71,10 @@
       </div>
     </div>
 
-    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'">
+    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'" ng-click="open( user )">
       <div class="col-md-4 lead-name" style="font-weight:bold;">
         <input type="checkbox" />
-        <a ng-click="open( user )">{{user.name}}</a>
+        <a>{{user.name}}</a>
       </div>
       <div class="col-md-2" style="font-weight:bold;">
         {{user.klout}}
@@ -447,38 +447,30 @@
         </div>
 
         <div class="row" style="margin-top:0.5em;" ng-show="perksMode">
-          <div class="col-md-5">
-            <tabset>
-              <tab heading="Product">
-                <table width="100%">
-                  <td width="50%">
-                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
-                      Product 1
-                    </div>
-                  </td>
-                  <td width="50%">
-                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
-                      Product 2
-                    </div>
-                  </td>
-                </table>
-              </tab>
-              <tab heading="Discount">
-                <table width="100%">
-                  <td width="50%">
-                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
-                      Discount 1
-                    </div>
-                  </td>
-                  <td width="50%">
-                    <div style="text-align:center;vertical-align:middle;line-height:100px;">
-                      Discount 2
-                    </div>
-                  </td>
-                </table>
-              </tab>
-            </tabset>
+          <div class="col-md-1" style="padding-top:2em;">
+            <strong style="font-size:large;"><span style="color:#E67D69;">Perks</span> 2</strong>
           </div>
+
+          <div class="col-md-2">
+            <div style="text-align:center;border-radius:10px;vertical-align:middle;height:132px;width:125px;line-height:130px;border:1px solid #ccc;">
+              <img src="images/headphones.png" />
+            </div>
+            <div>
+              <input type="checkbox" style="float:left;height:20px;margin-right:5px;" checked>
+              <div style="padding-top:5px;float:left;">MDR-HW300K<br/>Stereo Headphones</div>
+            </div>
+         </div>
+
+          <div class="col-md-2">
+            <div style="text-align:center;border-radius:10px;vertical-align:middle;height:132px;width:125px;line-height:130px;border:1px solid #ccc;">
+              <img src="images/coins.png" />
+            </div>
+            <div>
+              <input type="checkbox" style="float:left;height:20px;margin-right:5px;">
+              <div style="padding-top:5px;">$15.00 off</div>
+            </div>
+          </div>
+
         </div>
 
       </div>
