@@ -48,6 +48,9 @@ angular.module('lwaAdminApp', [
       },
       transclude: true,
       link: function( $scope, element ) {
+        $scope.sendPerk = function() {
+          $scope.$emit('sendPerk',null);
+        }
         var transcludedBlock = element.find('div.transcluded');
         var postBlock = element.find('div.post-holder');
         var responseBlock = element.find('div.response-holder');
@@ -76,7 +79,7 @@ angular.module('lwaAdminApp', [
         redirectTo: '/'
       });
   })
-.controller('TopCtrl', function ( $scope, $location ) {
+.controller('TopCtrl', function ( $scope, $location, $modal ) {
   $scope.set_range = function( range ) {
     $scope.range = range;
   }
@@ -299,6 +302,7 @@ angular.module('lwaAdminApp', [
         if ( pay > max_pay ) max_pay = pay;
       }
       min_pay = Math.floor( min_pay / bucket_size ) * bucket_size;
+      min_pay = 2000;
       max_pay = Math.floor( max_pay / bucket_size ) * bucket_size;
       var bucket_count = ( max_pay - min_pay ) / bucket_size;
       var buckets = [];
@@ -319,7 +323,7 @@ angular.module('lwaAdminApp', [
 
         buckets[ b ] += 1;
       }
-      buckets.splice( buckets.length - 1, 1 );
+      buckets.splice( buckets.length - 2, 2 );
       $scope.bucket_numbers.splice( $scope.bucket_numbers.length - 1, 1 );
       $scope.payHistogramConfig.series[0].data = buckets;
       $scope.payHistogramConfig.xAxis.categories = $scope.bucket_numbers;
@@ -367,12 +371,17 @@ angular.module('lwaAdminApp', [
     }
   }
 
+  $scope.price_low = 2000;
+  $scope.price_high = 3000;
+  $scope.user_count = 120;
   $scope.histogramClick = function( low, high ) {
     $scope.usersToAdd = [];
     $scope.users = [];
 
     var min = $scope.bucket_numbers[ low ];
     var max = $scope.bucket_numbers[ high ];
+    $scope.price_low = min;
+    $scope.price_high = max;
     for( var u = 0; u < 20; u++ ) {
       var value = ( Math.random() * ( max - min ) ) + min;
       value = Math.floor( value / 100.0 ) * 100.0;
@@ -459,5 +468,60 @@ angular.module('lwaAdminApp', [
 
   $scope.chartClick = function() {
     document.location.href = '/admin/#/wants';
-  }
+  };
+
+  $scope.$on( 'sendPerk', function( ) {
+    console.log( 'sendPerk' );
+    $scope.open( { name: 'Peter Parker', klout: 49 } );
+  } );
+
+  $scope.open = function( user ) {
+    $scope.user = user;
+    var modalInstance = $modal.open({
+      templateUrl: 'myModalContent.html',
+      controller: ModalInstanceCtrl,
+      resolve: {
+        user: function () {
+          return $scope.user;
+        }
+      }
+    });
+
+    modalInstance.result.then(function () {
+    }, function () {
+    });
+  };
 });
+
+
+var OfferInstanceCtrl = function ($scope, $modalInstance, data) {
+  $scope.low = data.low;
+  $scope.high = data.high;
+  $scope.count = data.count;
+  $scope.discount = data.discount;
+
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+}
+
+var ModalInstanceCtrl = function ($scope, $modalInstance, user) {
+  $scope.user = user;
+  $scope.perksMode = false;
+
+  $scope.sendPerk = function() {
+    $scope.perksMode = true;
+  }
+
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+};

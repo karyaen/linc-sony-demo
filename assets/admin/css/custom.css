@@ -124,6 +124,13 @@ td.metric-orange {
   opacity:1;
 }
 
+.coin-container {
+	background-image: url('../images/coin-background.png');
+	background-repeat: no-repeat;
+	background-size: 162px 246px;
+	background-position: 400px 70px;
+}
+
 .ng-hide {
   display:none!important;
 }

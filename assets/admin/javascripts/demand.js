@@ -3,14 +3,19 @@
 angular.module('lwaAdminApp')
 .controller('DemandCtrl', function ($scope,$modal) {
 	$scope.$emit('tabChange','demand');
-  $scope.open = function( user ) {
-  	$scope.user = user;
+
+  $scope.sendBulkPerk = function() {
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
-      controller: ModalInstanceCtrl,
+      templateUrl: 'offerDalog.html',
+      controller: OfferInstanceCtrl,
       resolve: {
-        user: function () {
-          return $scope.user;
+        data: function() {
+          return {
+            low: $scope.price_low,
+            high: $scope.price_high,
+            count: $scope.user_count,
+            discount: 100
+          };
         }
       }
     });
@@ -20,20 +25,3 @@ angular.module('lwaAdminApp')
     });
   };
 });
-
-var ModalInstanceCtrl = function ($scope, $modalInstance, user) {
-  $scope.user = user;
-  $scope.perksMode = false;
-
-  $scope.sendPerk = function() {
-    $scope.perksMode = true;
-  }
-
-  $scope.ok = function () {
-    $modalInstance.close();
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-};
