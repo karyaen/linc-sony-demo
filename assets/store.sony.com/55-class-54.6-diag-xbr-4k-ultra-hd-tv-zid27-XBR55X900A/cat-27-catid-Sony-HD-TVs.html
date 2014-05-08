@@ -1389,12 +1389,61 @@
     </div>
 
     <div id="klout-score-hover">
-
       <div class="inner-div">
-        <img class="score" src="/lithium/linc-sony-score-100.png">
-        <img class="stats" src="/lithium/linc-sony-score-stats.png">
-        <div class="arrow"></div>
-
+        <div class="header">
+          <div class="flag3"></div>
+          <div class="content">
+            <div> <b>85</b>/100 | <b>300</b> +K's</div>
+            <div>Highly Recommended</div>
+          </div>
+        </div>
+        <div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:70%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Resolution (275)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:20%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Design (25)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:3%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Price (8)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:20%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Features (1)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:15%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>3D (15)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1407,11 +1456,11 @@
         visibility: hidden;
       }
       #klout-score-hover .inner-div {
-        height: 190px;
-        width: 575px;
+        width: 430px;
         position: absolute;
         margin-top: 8px;
-        padding: 30px 20px;
+        padding: 25px;
+        padding-right: 0px;
         background-color: #FFFFFF;
         border: 1px solid #b5b5b5;
         -webkit-box-shadow: 0 0 12px #b5b5b5;
@@ -1429,6 +1478,40 @@
         height: 160px;
         width: 395px;
         padding-left: 10px;
+        vertical-align: top;
+      }
+      #klout-score-hover .flag3 {
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        margin-right: 15px;
+        background: transparent url(../../lithium/linc-sony-score.png) no-repeat center top;
+      }
+      #klout-score-hover .content {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 20px;
+      }
+      #klout-score-hover .progress-bar-wrapper > div {
+        display: inline-block;
+      }
+      #klout-score-hover .progress-bar {
+        background-color: #EEEEEE;
+        width: 52%;
+        display: inline-block;
+      }
+      #klout-score-hover .progress-bar div {
+
+        background-color: #339933;
+        height: 8px;
+      }
+      #klout-score-hover .progress-bar-wrapper > .type-info {
+        margin-left: 15px;
+      }
+      #klout-score-hover .progress-bar-wrapper > .type-info img {
+        margin-right: 10px;
+      }
+      #klout-score-hover .progress-bar-wrapper > .type-info span {
         vertical-align: top;
       }
     </style>
