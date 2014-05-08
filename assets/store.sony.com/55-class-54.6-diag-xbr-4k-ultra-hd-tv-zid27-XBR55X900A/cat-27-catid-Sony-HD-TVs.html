@@ -1338,37 +1338,7 @@
             <div class="ws-add-to-cart-container" data-dynamic-block-name="AddToCart"
                  data-dynamic-block-id="QU0KmUBwAnAAAAFBd0Yv3S8v"><input type="hidden" name="addProduct" value=""/>
 
-              <style>
-                .li-wants-button {
-                  margin-right: 40px;
-                  display: inline-block;
-                }
-
-                .li-wants-button button {
-                  padding: 6px 20px;
-                  border: 1px solid #a3a3a3;
-                  background: #cccccc;
-                }
-
-                .li-wants-button button:hover {
-                  background: #b7b7b7;
-                }
-
-                .li-wants-modal {
-                  border: 1px solid #cccccc;
-                  background: #ffffff;
-                }
-
-                .li-wants-modal span {
-                  float: right;
-                  margin: 8px;
-                  cursor: pointer;
-                }
-
-              </style>
-              <span class="li-wants-button">
-                <li:wants-button href="http://54.193.114.254:1337/products/2/wants"><button onclick="LITHIUM.Widgets.WantsButton.open(event, this)">Want</button></li:wants-button>
-              </span>
+              <li:wants-button href="http://54.193.114.254:1337/products/1/wants"><button class="li-wants-button" onclick="LITHIUM.Widgets.WantsButton.toggle(this); return false;">Want</button></li:wants-button>
 
               <button type="submit"
                       class="ws-submit ws-add-to-cart-submit kor-cart-button ws-add-to-cart-active kor-open-interstitial-dialog"
