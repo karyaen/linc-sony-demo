@@ -8,6 +8,7 @@ var openPath;
 var openBrowser;
 var env;
 var port = 3000; //default: 3000
+var versionString;
 /*
  * Set up the app mode based on either the NODE_ENV
  * env var or the --prod command line parameter. Default
@@ -91,7 +92,20 @@ gulp.task('app', function () {
     }
     res.sendfile(file);
   });
-
+  app.get('/status/version', function (req, res) {
+    res.set('Content-Type', 'text/html');
+    if (!versionString) {
+      var spawn = require('child_process').spawn;
+      var gitCmd = spawn('git', ['log', '-1', '--pretty=format:"%h, %ad, %s, %an"']);
+      gitCmd.stdout.on('data', function (data) {
+        versionString = '<p>' + data + '</p>';
+        res.send(200, versionString);
+      });
+      //should handle .stderr.on and .close
+    } else {
+      res.send(200, versionString);
+    }
+  });
   app.listen(port, function () {
     /*
      * When in development mode listen for file changes to

@@ -386,6 +386,7 @@ angular.module('lwaAdminApp', [
       var value = ( Math.random() * ( max - min ) ) + min;
       value = Math.floor( value / 100.0 ) * 100.0;
       $scope.usersToAdd.push( {
+        selected: false,
         id: $scope.next_user_id++,
         name: chance.name(),
         email: chance.email(),
@@ -426,7 +427,11 @@ angular.module('lwaAdminApp', [
   ]);
 
   $scope.sort_order = 'name';
+  $scope.sort_reverse = false;
   $scope.sort = function( column ) {
+    if ( $scope.sort_order === column ) {
+      $scope.sort_reverse = !$scope.sort_reverse;
+    }
     $scope.sort_order = column;
     $scope.updateSorting();
   }
@@ -447,21 +452,26 @@ angular.module('lwaAdminApp', [
       $scope.users = _.sortBy($scope.users,'email');
       $scope.usersToAdd = _.sortBy($scope.usersToAdd,'email');
     }
+    if ( $scope.sort_reverse ) {
+      $scope.users = $scope.users.reverse();
+      $scope.usersToAdd = $scope.usersToAdd.reverse();
+    }
   }
 
-    $scope.users = [];
-    for( var u = 0; u < 20; u++ ) {
-      var price = 3200 + ( ( Math.random() * 400 ) - 200 );
-      price = Math.round( price / 100.0 ) * 100.0;
-      $scope.users.push( {
-        id: $scope.next_user_id++,
-        name: chance.name(),
-        email: chance.email(),
-        klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
-        price: Math.round( price )
-      });
-      $scope.updateSorting();
-    }
+  $scope.users = [];
+  for( var u = 0; u < 20; u++ ) {
+    var price = 3200 + ( ( Math.random() * 400 ) - 200 );
+    price = Math.round( price / 100.0 ) * 100.0;
+    $scope.users.push( {
+      selected: false,
+      id: $scope.next_user_id++,
+      name: chance.name(),
+      email: chance.email(),
+      klout: Math.round( 50 + ( ( Math.random() * 10 ) - 5 ) ),
+      price: Math.round( price )
+    });
+    $scope.updateSorting();
+  }
 
   $scope.$watch( 'range', function() { $scope.setup_chart(); } );
   $scope.$watch( 'data', function() { $scope.setup_chart(); } );

@@ -12,6 +12,8 @@ opacityItems.push($('body .ws-content .sonyCustomerCare'));
 opacityItems.push($('body .ws-footer.sny-footer'));
 
 function setOpacity (percentage) {
+  // remove opacity
+  return;
   for (var i = 0; i < opacityItems.length; i++) {
     opacityItems[i].css({opacity: percentage});
   }

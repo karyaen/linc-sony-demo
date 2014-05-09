@@ -57,17 +57,30 @@
     </div>
 
     <div class="row" style="border-bottom: 1px solid #ccc;">
-      <div class="col-md-4 column-header" style="font-weight:bold;padding-left:3em;">
-        <a ng-click="sort('name')">Lead <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'"></i></a>
+      <div class="col-md-4 column-header" style="font-weight:bold;">
+        <input type="checkbox" ng-model="all_selected" />
+        <a ng-click="sort('name')" style="padding-left:0.5em;">Lead
+        <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="sort_order=='name'&&sort_reverse==true"></i>
+        </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
-        <a ng-click="sort('score')"><img src="images/klout_micro.png"> Score <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'"></i></a>
+        <a ng-click="sort('score')"><img src="images/klout_micro.png"> Score
+        <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-sort-by-order-alt" ng-show="sort_order=='score'&&sort_reverse==true"></i>
+        </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
-        <a ng-click="sort('pay')">Willing To Pay <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'"></i></a>
+        <a ng-click="sort('pay')">Willing To Pay
+        <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-sort-by-order-alt" ng-show="sort_order=='pay'&&sort_reverse==true"></i>
+        </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
-        <a ng-click="sort('email')">Email <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='email'"></i></a>
+        <a ng-click="sort('email')">Email
+        <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='email'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="sort_order=='email'&&sort_reverse==true"></i>
+        </a>
       </div>
       <div class="col-md-2 column-header">
         Action
@@ -76,7 +89,7 @@
 
     <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'" ng-click="open( user )">
       <div class="col-md-4 lead-name" style="font-weight:bold;">
-        <input type="checkbox" />
+        <input type="checkbox" ng-model="user.selected" />
         <a>{{user.name}}</a>
       </div>
       <div class="col-md-2">

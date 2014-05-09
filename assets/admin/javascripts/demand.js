@@ -4,6 +4,13 @@ angular.module('lwaAdminApp')
 .controller('DemandCtrl', function ($scope,$modal) {
 	$scope.$emit('tabChange','demand');
 
+  $scope.all_selected = false;
+  $scope.$watch( 'all_selected', function() {
+    for( var u in $scope.users ) {
+      $scope.users[u].selected = $scope.all_selected;
+    }
+  } );
+
   $scope.sendBulkPerk = function() {
     var modalInstance = $modal.open({
       templateUrl: 'offerDalog.html',
