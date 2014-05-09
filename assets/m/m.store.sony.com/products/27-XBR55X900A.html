@@ -132,24 +132,184 @@
   var selectedColor = "";
 </script>
 
-
-
-
-
 <section class="product-container">
   
-    <div class="back-link">
+<div class="back-link">
 	<a href="http://m.store.sony.com/categories/-~cat-27-catid-All-XBR-Series-TVs" class="back">Back to XBR Series 4K Ultra HD TVs</a>
 </div>
+<style type="text/css">
+  .product-header {
+    position: relative;
+  }
+  .product-header > .left-block {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+  }
+  .product-header > .right-block {
+    display: inline-block;
+    vertical-align: top;
+    width: 70%;
+  }
+  .product-header > .left-block > .mobile-kscore {
+    height: 60px;
+    width: 60px;
+    background: #FFF;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+  }
+  .product-header > .left-block > #kscore-btn-default {
+    background-image: url(/lithium/mobile_Kscore_btn_default.png);
+  }
+  .product-header > .left-block > #kscore-btn-press {
+    visibility: hidden;
+    background-image: url(/lithium/mobile_Kscore_btn_press.png);
+  }
+  .product-header > .left-block:active > #kscore-btn-default {
+    visibility: hidden;
+  }
+  .product-header > .left-block:active > #kscore-btn-press,
+  .product-header > .left-block.clicked > #kscore-btn-press {
+    visibility: visible;
+  }
+  .product-header > .right-block > .stars {
+    height: 20px;
+    width: 120px;
+    background-image: url(/lithium/mobile_stars.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 5px;
+  }
+  .product-header .klout-score-flyout {
+    position: absolute;
+    visibility: hidden;
+    z-index: 50;
+  }
+  .klout-score-flyout > .inner-flyout {
+    background-color: #FFFFFF;
+    border: 1px solid #339933;
+  }
+  .product-header .klout-score-flyout .inner-flyout > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .product-header .klout-score-flyout .inner-flyout > div > img {
+    width: 100%;
+    padding: 5px;
+  }
+  .product-header .klout-score-flyout .inner-flyout > .score-summary {
+    width:28%;
+  }
+  .product-header .klout-score-flyout .inner-flyout > .stats-summary {
+    width: 67%;
+  }
 
-  
+  #klout-score-flyout .inner-flyout .arrow {
+    border: 1px solid #339933;
+    position: absolute;
+  }
+
+  #klout-score-flyout .inner-flyout > .arrow,
+  #klout-score-flyout .inner-flyout > .arrow::after {
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  #klout-score-flyout .inner-flyout > .arrow {
+    border-width: 11px;
+  }
+
+  #klout-score-flyout .inner-flyout > .arrow::after {
+    border-width: 10px;
+  }
+
+  #klout-score-flyout .inner-flyout > .arrow {
+    left: 30px;
+    margin-left: -11px;
+    border-top-width: 0;
+    border-bottom-color: #339933;
+    top: -10px;
+  }
+
+  #klout-score-flyout .inner-flyout > .arrow::after {
+    content: " ";
+    top: 1px;
+    margin-left: -10px;
+    border-top-width: 0;
+    border-bottom-color: #ffffff;
+  }
+</style>
   <header class="product-header">
-    <h1>55&quot; Class (54.6&quot; diag) XBR 4K Ultra HD TV</h1>
-    <div class="klout-score">
-      <div class="score-summary"></div>
-      <div class="stats-summary"></div>
+    <div class="left-block" >
+      <div id="kscore-btn-default" class="mobile-kscore"></div>
+      <div id="kscore-btn-press" class="mobile-kscore"></div>
+    </div>
+    <div class="right-block">
+      <h1>55&quot; Class (54.6&quot; diag) XBR 4K Ultra HD TV</h1>
+      <div class="stars"></div>
+      <a>24 Reviews</a> | <a>300 +Ks</a>
+    </div>
+
+    <div id="klout-score-flyout" class="klout-score-flyout">
+      <div class="inner-flyout">
+        <div class="score-summary">
+          <img src="/lithium/mobile_KScore.png">
+        </div>
+        <div class="stats-summary">
+          <img src="/lithium/mobile_attributes.png">
+        </div>
+        <div class="arrow"></div>
+      </div>
     </div>
   </header>
+<script type="text/javascript">
+  ;(function() {
+    KloutScore = function() {
+
+      var flyout = jQuery('#klout-score-flyout')
+      var opacitySections = [];
+      var inititializeOpacitySection = function() {
+        if(opacitySections.length == 0) {
+          opacitySections.push(jQuery(".product-container > section"));
+          opacitySections.push(jQuery(".product-container > ul"));
+        }
+      }
+
+
+      var hideDropDown = function(event) {
+        if(event.currentTarget === document) {
+          flyout.css('visibility', 'hidden');
+          for(var i=0; i<opacitySections.length; i++) {
+            opacitySections[i].css('opacity', '1');
+          }
+        }
+      }
+
+      var clickEventName = 'click.klout.score'
+
+      var showDropDown = function(event) {
+        inititializeOpacitySection();
+        jQuery(document).unbind(clickEventName + ' click', hideDropDown);
+
+        for(var i=0; i<opacitySections.length; i++) {
+          opacitySections[i].css('opacity', '.15');
+        }
+        flyout.css('visibility', 'visible');
+        jQuery(document).bind(clickEventName + ' click', hideDropDown);
+        event.preventDefault();
+        return false;
+      }
+
+      jQuery('.left-block').on('click', showDropDown);
+    }();
+  })();
+</script>
 
   <div class="top-rate product-info">
     

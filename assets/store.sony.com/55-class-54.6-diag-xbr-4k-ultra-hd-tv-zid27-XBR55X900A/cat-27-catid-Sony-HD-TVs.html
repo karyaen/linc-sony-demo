@@ -1312,6 +1312,42 @@
           <span class="ws-product-item-number-value item-number">XBR-55X900A</span>
         </div>
       </h2>
+
+      <style type="text/css">
+        .bottom-header > div {
+          display: inline-block;
+          margin-right: 75px;
+          vertical-align: top;
+        }
+        .bottom-header > div > img {
+          height: 30px;
+        }
+        .bottom-header > div button {
+          height: 30px;
+        }
+        .bottom-header .li-wants-button {
+          color: #FFFFFF;
+          background-color: #339933;
+        }
+        .sny-product-header .sny-product-price-group {
+          position: relative;
+          right: 0px;
+        }
+        .sny-product-header .kor-product-list-price {
+          float: left;
+        }
+      </style>
+      <div class="bottom-header">
+        <div>
+          <img src="/lithium/mobile_stars.png">
+        </div>
+        <div>
+          <img src="/lithium/sm_klout_+k_green.png">
+        </div>
+        <div class="wants-button-elm">
+          <li:wants-button href="http://54.193.114.254:1337/products/1/wants"><button class="li-wants-button" onclick="LITHIUM.Widgets.WantsButton.toggle(this); return false;">Want</button></li:wants-button>
+        </div>
+      </div>
       <!--<div id="BVRRSummaryContainer">-->
         <!--<div class="ws-product-rating ">-->
           <!--<div class="ws-product-rating-value ws-product-rating-value-4-5"></div>-->
@@ -1322,16 +1358,6 @@
             <!--a Review</a></div>-->
       <!--</div>-->
 
-      <!--<div class="ws-group sny-product-price-group">-->
-        <!--<div class="kor-product-sale-price sny-product-sale-price" data-dynamic-block-name="Sale-Price"-->
-             <!--data-dynamic-block-id="hHEKmUBwmSQAAAFBOEQv3S8v">-->
-          <!--<span-->
-              <!--class="kor-product-sale-price-value ws-sale-price ws-sale-price-lower ws-sale-price-temporary">$ 2,999.99</span>-->
-        <!--</div>-->
-        <!--<div class="kor-product-price kor-product-list-price" data-dynamic-block-name="Informational-Price"-->
-             <!--data-dynamic-block-id="DRsKmUBwsaMAAAFBFHsv3S8v"><span-->
-            <!--class="kor-product-was-price-value ws-price  ws-price-higher ws-price-permanent">$ 4,999.99</span></div>-->
-      <!--</div>-->
     </div>
     <div class="ws-group sny-product-swatches-addtocart">
       <div class="ws-group">
@@ -1343,12 +1369,16 @@
             <div class="ws-add-to-cart-container" data-dynamic-block-name="AddToCart"
                  data-dynamic-block-id="QU0KmUBwAnAAAAFBd0Yv3S8v"><input type="hidden" name="addProduct" value=""/>
 
-              <li:wants-button href="http://54.193.114.254:1337/products/1/wants"><button class="li-wants-button" onclick="LITHIUM.Widgets.WantsButton.toggle(this); return false;">Want</button></li:wants-button>
-
               <button type="submit"
                       class="ws-submit ws-add-to-cart-submit kor-cart-button ws-add-to-cart-active kor-open-interstitial-dialog"
                       disabled="disabled">Add to Cart
               </button>
+              <div class="ws-group sny-product-price-group">
+                <div class="kor-product-sale-price sny-product-sale-price" data-dynamic-block-name="Sale-Price" data-dynamic-block-id="hHEKmUBwmSQAAAFBOEQv3S8v">
+                  <span class="kor-product-sale-price-value ws-sale-price ws-sale-price-lower ws-sale-price-temporary">$ 2,699</span><sup>.99</sup>
+                </div>
+                <div class="kor-product-price kor-product-list-price" data-dynamic-block-name="Informational-Price" data-dynamic-block-id="DRsKmUBwsaMAAAFBFHsv3S8v"><span class="kor-product-was-price-value ws-price  ws-price-higher ws-price-permanent">$ 4,999</span><sup>.99</sup></div>
+              </div>
             </div>
             <div class="ws-field ws-quantity kor-product-quantity-component "
                  data-dynamic-block-name="ProductQuantityMessaging" data-dynamic-block-id="To8KmUBwdQUAAAFBmEYv3S8v">
@@ -1392,12 +1422,65 @@
     </div>
 
     <div id="klout-score-hover">
-
       <div class="inner-div">
-        <img class="score" src="/lithium/linc-sony-score-100.png">
-        <img class="stats" src="/lithium/linc-sony-score-stats.png">
-        <div class="arrow"></div>
+        <div class="header">
+          <div class="flag3"></div>
+          <div class="content">
+            <div> <span class="bold">85</span>/100 | <span class="bold">300</span> +K's</div>
+            <div>Highly Recommended</div>
+          </div>
+        </div>
+        <div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:70%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Resolution (275)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:20%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Design (25)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:3%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Price (8)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:20%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>Features (1)</span>
+            </div>
+          </div>
+          <div class="progress-bar-wrapper">
+            <div class="progress-bar">
+              <div style="width:15%;"></div>
+            </div>
+            <div class="type-info">
+              <img src="/lithium/sm_klout_+k.png" />
+              <span>3D (15)</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="klout-logo"><img src="/lithium/sm_klout_brand.png"></div>
 
+        </div>
       </div>
     </div>
 
@@ -1410,13 +1493,14 @@
         visibility: hidden;
       }
       #klout-score-hover .inner-div {
-        height: 190px;
-        width: 575px;
+        width: 380px;
         position: absolute;
         margin-top: 8px;
-        padding: 30px 20px;
+        padding: 25px;
         background-color: #FFFFFF;
-        border: 1px solid #339933;
+        border: 1px solid #b5b5b5;
+        -webkit-box-shadow: 0 0 12px #b5b5b5;
+        box-shadow: 0 0 12px #b5b5b5;
         z-index: 100;
       }
       #klout-score-hover img {
@@ -1432,45 +1516,50 @@
         padding-left: 10px;
         vertical-align: top;
       }
-      #klout-score-hover .inner-div .arrow {
-        border: 1px solid #339933;
-        position: absolute;
+      #klout-score-hover .flag3 {
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        margin-right: 15px;
+        background: transparent url(../../lithium/sm_klout_score.png) no-repeat center top;
       }
-
-      #klout-score-hover .inner-div > .arrow,
-      #klout-score-hover .inner-div > .arrow::after {
-        box-sizing: border-box;
-        position: absolute;
-        display: block;
-        width: 0;
-        height: 0;
-        border-color: transparent;
-        border-style: solid;
+      #klout-score-header {
+        margin-bottom: 15px;
       }
-
-      #klout-score-hover .inner-div > .arrow {
-        border-width: 11px;
+      #klout-score-hover .content {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 20px;
       }
-
-      #klout-score-hover .inner-div > .arrow::after {
-        border-width: 10px;
+      #klout-score-hover .content > .bold {
+        padding-top: 20px
+        font-weight: bold;
       }
-
-      #klout-score-hover .inner-div > .arrow {
-        left: 36px;
-        margin-left: -11px;
-        border-top-width: 0;
-        border-bottom-color: #339933;
-        top: -11px;
+      #klout-score-hover .progress-bar-wrapper > div {
+        display: inline-block;
       }
-
-      #klout-score-hover .inner-div > .arrow::after {
-        content: " ";
-        top: 1px;
-        margin-left: -10px;
-        border-top-width: 0;
-        border-bottom-color: #ffffff;
+      #klout-score-hover .progress-bar {
+        background-color: #EEEEEE;
+        width: 52%;
+        display: inline-block;
+        margin: 6px 0px;
       }
+      #klout-score-hover .progress-bar div {
+        background-color: #339933;
+        height: 8px;
+      }
+      #klout-score-hover .progress-bar-wrapper > .type-info {
+        margin-left: 15px;
+      }
+      #klout-score-hover .progress-bar-wrapper > .type-info img {
+        margin-right: 10px;
+      }
+      #klout-score-hover .progress-bar-wrapper > .type-info span {
+        vertical-align: top;
+      }
+      #klout-score-hover .footer {
+        padding-top:15px;
+       }
     </style>
     <script type="text/javascript">
       bindEvent('onload', function () {
@@ -3497,6 +3586,9 @@
       <li role="listitem" class="kor-collection-link-list-navigation-item sny-product-reviews-tab">
         <a href="javascript:void(0)" class="kor-collection-link">Reviews</a>
       </li>
+      <li role="listitem" class="kor-collection-link-list-navigation-item sny-product-qanda-tab">
+        <a href="javascript:void(0)" class="kor-collection-link">Questions</a>
+      </li>
       <li role="listitem" class="kor-collection-link-list-navigation-item sny-product-accessories-tab">
         <a href="javascript:void(0)" class="kor-collection-link">Accessories</a>
       </li>
@@ -4415,6 +4507,10 @@
       <div
           class="ws-group sny-prod-reviews-cms2"
           ></div>
+    </div>
+    <div class="kor-collection-link-list-section sny-product-qanda-tab">
+      <li:qanda-widget href="http://54.193.114.254:1337/products/1/qanda"></li:qanda-widget>
+
     </div>
     <div class="kor-collection-link-list-section sny-product-accessories-tab">
 
