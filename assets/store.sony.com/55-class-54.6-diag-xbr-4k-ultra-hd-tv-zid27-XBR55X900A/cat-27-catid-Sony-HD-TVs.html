@@ -1261,12 +1261,17 @@
           width: 50px;
           height: 50px;
           padding-bottom: 5px;
-          background: transparent url(../../lithium/linc-sony-score.png) no-repeat center top;
+          background-color: transparent;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: url(../../lithium/mobile_Kscore_btn_default.png);
           text-align: center;
           line-height: 45px;
           vertical-align: middle
         }
-
+        .flag2:hover {
+          background-image: url(../../lithium/mobile_Kscore_btn_press.png);
+        }
         .flag2 .score {
           font: 39px / 67px 'LatoBlack', 'Helvetica Neue', Helvetica, Arial, sans-serif;
           color: #fff;
