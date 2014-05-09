@@ -64,7 +64,7 @@ gulp.task('app', function () {
    */
   if (process.env.NODE_ENV === 'development') {
     app.use(require('connect-livereload')({
-      port: 35729
+      port: 35728
     }));
   }
 
@@ -99,9 +99,9 @@ gulp.task('app', function () {
      * the express server is connected.
      */
     if (process.env.NODE_ENV === 'development') {
-      var lrServer = livereload();
+      var lrServer = livereload(35728);
 
-      gulp.watch('assets/admin/**/*.*').on('change', function (file) {
+      gulp.watch(['assets/**/*.*']).on('change', function (file) {
         console.log('Reload', file.path);
         lrServer.changed(file.path);
       });
