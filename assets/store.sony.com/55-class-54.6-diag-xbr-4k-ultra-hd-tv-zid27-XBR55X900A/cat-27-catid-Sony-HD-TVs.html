@@ -1264,12 +1264,17 @@
           width: 50px;
           height: 50px;
           padding-bottom: 5px;
-          background: transparent url(../../lithium/linc-sony-score.png) no-repeat center top;
+          background-color: transparent;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-image: url(../../lithium/mobile_Kscore_btn_default.png);
           text-align: center;
           line-height: 45px;
           vertical-align: middle
         }
-
+        .flag2:hover {
+          background-image: url(../../lithium/mobile_Kscore_btn_press.png);
+        }
         .flag2 .score {
           font: 39px / 67px 'LatoBlack', 'Helvetica Neue', Helvetica, Arial, sans-serif;
           color: #fff;
@@ -1320,10 +1325,15 @@
           vertical-align: top;
         }
         .bottom-header > div > img {
-          height: 30px;
+          height: 25px;
+        }
+        .bottom-header > div.stars {
+          color: #e8112c;
+          font-size: 25px;
         }
         .bottom-header > div button {
-          height: 30px;
+          height: 25px;
+          padding: 0px 18px;
         }
         .bottom-header .li-wants-button {
           color: #FFFFFF;
@@ -1336,10 +1346,17 @@
         .sny-product-header .kor-product-list-price {
           float: left;
         }
+        .sny-product-info-social .ws-product-title {
+          font-weight: bold;
+        }
+        .sny-product-info-social .ws-product-item-number {
+          font-weight: bold;
+          padding: 3px 0px;
+        }
       </style>
       <div class="bottom-header">
-        <div>
-          <img src="/lithium/mobile_stars.png">
+        <div class="stars">
+          ★★★★★
         </div>
         <div>
           <img src="/lithium/sm_klout_+k_green.png">
@@ -1552,7 +1569,7 @@
         margin-left: 15px;
       }
       #klout-score-hover .progress-bar-wrapper > .type-info img {
-        margin-right: 10px;
+        margin-right: 5px;
       }
       #klout-score-hover .progress-bar-wrapper > .type-info span {
         vertical-align: top;
@@ -1572,6 +1589,7 @@
         opacityItems.push($('body .ws-content > .sny-product-testimonial-break'));
         opacityItems.push($('body .ws-content > .sny-product-tabset-group'));
         opacityItems.push($('body .ws-content .sonyCustomerCare'));
+        opacityItems.push($('body .ws-footer.sny-footer'));
 
         function setOpacity (percentage) {
           for (var i = 0; i < opacityItems.length; i++) {
