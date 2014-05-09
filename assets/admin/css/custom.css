@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Lithium Din';
+  src: url("fonts/DINRoundOT-Light.otf");
+  src: url("fonts/DINRoundOT-Black.otf");
+  src: url("fonts/DINRoundOT-Bold.otf");
+  src: url("fonts/DINRoundOT-Medium.otf");
+}
+
 .navbar {
 	background-color: #352063;
 }
@@ -71,6 +79,8 @@ td.metric-orange {
 
 .region-title {
 	text-transform: uppercase;
+	font-family: Lithium Din;
+	font-weight: bold;
 }
 
 .column-header {
