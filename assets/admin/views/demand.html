@@ -56,7 +56,7 @@
       </div>
     </div>
 
-    <div class="row" style="border-bottom: 1px solid #ccc;">
+    <div class="row" style="border-bottom: 1px solid #ccc;padding-top:1em;">
       <div class="col-md-4 column-header" style="font-weight:bold;">
         <input type="checkbox" ng-model="all_selected" />
         <a ng-click="sort('name')" style="padding-left:0.5em;">Lead
@@ -65,7 +65,7 @@
         </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
-        <a ng-click="sort('score')"><img src="images/klout_micro.png"> Score
+        <a ng-click="sort('score')">Klout Score
         <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'&&sort_reverse==false"></i>
         <i class="glyphicon glyphicon-sort-by-order-alt" ng-show="sort_order=='score'&&sort_reverse==true"></i>
         </a>
@@ -88,7 +88,7 @@
     </div>
 
     <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'" ng-click="open( user )">
-      <div class="col-md-4 lead-name" style="font-weight:bold;">
+      <div class="col-md-4 lead-name">
         <input type="checkbox" ng-model="user.selected" />
         <a>{{user.name}}</a>
       </div>

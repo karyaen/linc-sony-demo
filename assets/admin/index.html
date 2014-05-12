@@ -26,17 +26,17 @@
           <a class="navbar-brand" href="#"><img src="images/lithium_purple.png" height="20" /></a>
         </div>
         <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-right">
             <li class="{{tab=='overview'?'active':''}}"><a ng-href="#/">Overview</a></li>
             <li class="{{tab=='demand'?'active':''}}"><a ng-href="#/wants">Wants</a></li>
             <li><a href="#/">Endorsements</a></li>
             <li><a href="#/">Ratings</a></li>
-            <li><a href="#/">
+            <li style="width:150px;"><a href="#/">
             <div style="width:1px;height:1px;position:relative;">
                 <img src="images/olivia.png" height="35" style="position:absolute;top:-6px;left:-12px;">
             </div>
             &nbsp;Leslie Green</a></li>
-            <li><a href="#/"><img src="images/gear_purple.png" height="20" style="float:left;"></a></li>
+            <li style="width:40px;"><a href="#/" style="width:40px;min-width:40px;"><img src="images/gear_purple.png" height="20"></a></li>
           </ul>
         </div>
       </div>
@@ -158,7 +158,7 @@
               <img src="images/headphones.png" />
             </div>
             <div>
-              <input type="checkbox" style="float:left;height:20px;margin-right:5px;" checked>
+              <input type="checkbox" style="float:left;height:20px;margin-right:5px;">
               <div style="padding-top:5px;float:left;">MDR-HW300K<br/>Stereo Headphones</div>
             </div>
          </div>
@@ -267,7 +267,7 @@
     <script src="javascripts/ui-bootstrap.js"></script>
     <script src="javascripts/ui-bootstrap-tpls.js"></script>
     <script src="javascripts/highcharts-ng.js"></script>
-    <script src="javascripts/highcharts.js"></script>
+    <script src="javascripts/highcharts.src.js"></script>
     <script src="javascripts/chance.js"></script>
     <script src="javascripts/app.js"></script>
     <script src="javascripts/demand.js"></script>

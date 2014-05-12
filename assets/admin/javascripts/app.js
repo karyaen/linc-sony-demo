@@ -110,13 +110,19 @@ angular.module('lwaAdminApp', [
       type: 'column',
       zoomType: 'x',
       events: {
+        selectionDuring: function(event) {
+          var min = Math.round(event.min);
+          var max = Math.round(event.max);
+          $scope.payHistogramConfig.series[0].data[min].color = 'orange';
+        },
         selection: function(event) {
           if (event.xAxis) {
             $scope.histogramClick(Math.round(event.xAxis[0].min),Math.round(event.xAxis[0].max));
             return false;
           }
         }
-      }
+      },
+      selectionMarkerFill: 'rgba(0,255,0,0.50)'
     },
     yAxis: {
       title: {
@@ -194,14 +200,6 @@ angular.module('lwaAdminApp', [
             data: [],
             marker: {
               enabled: false
-            },
-            events: {
-              click: function( event ) {
-                $scope.chartClick();
-              },
-              selection: function( event ) {
-                $scope.chartClick();
-              }
             }
       }],
         plotOptions: {
@@ -325,7 +323,14 @@ angular.module('lwaAdminApp', [
       }
       buckets.splice( buckets.length - 2, 2 );
       $scope.bucket_numbers.splice( $scope.bucket_numbers.length - 1, 1 );
-      $scope.payHistogramConfig.series[0].data = buckets;
+
+      var new_buckets = [];
+      for( var b in buckets ) {
+        new_buckets.push({ y: buckets[b], color: '#2F7ED8' });
+      }
+
+      $scope.payHistogramConfig.series[0].data = new_buckets;
+
       $scope.payHistogramConfig.xAxis.categories = $scope.bucket_numbers;
 
       if( $('#payHistogram').length > 0 ) {

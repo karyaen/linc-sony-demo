@@ -125,6 +125,10 @@ td.metric-orange {
   transition:1s linear all;
 }
 
+.person.ng-enter {
+  background-color: #73FF73;
+}
+
 .person.ng-enter,
 .person.ng-leave.ng-leave-active {
   opacity:0;
@@ -143,6 +147,10 @@ td.metric-orange {
 
 .ng-hide {
   display:none!important;
+}
+
+.selection-box {
+	background: green !important;
 }
 
 @media (min-width: 1200px) {
