@@ -184,9 +184,10 @@
       </div>
     </div>
     <div class="modal-footer">
+    <img src="images/klout_lg.png" style="float:left;margin-top:0.75em;">
         <button class="btn btn-default" ng-click="ok()" ng-hide="perksMode">View Profile</button>
-        <button class="btn btn-default" ng-click="sendPerk()" ng-hide="perksMode"><img src="images/klout.png"> Send Perk</button>
-        <button class="btn btn-default" ng-click="doDone()" ng-show="perksMode&&!doneMode"><img src="images/klout.png"> Perk Him</button>
+        <button class="btn btn-default" ng-click="sendPerk()" ng-hide="perksMode">Send Perk</button>
+        <button class="btn btn-success" ng-click="doDone()" ng-show="perksMode&&!doneMode">Perk Him</button>
         <button class="btn btn-default" ng-show="doneMode" ng-click="cancel()">Close</button>
     </div>
 </script>
