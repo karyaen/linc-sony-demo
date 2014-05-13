@@ -321,8 +321,8 @@ angular.module('lwaAdminApp', [
 
         buckets[ b ] += 1;
       }
-      buckets.splice( buckets.length - 2, 2 );
-      $scope.bucket_numbers.splice( $scope.bucket_numbers.length - 1, 1 );
+      buckets.splice( buckets.length - 3, 3 );
+//      $scope.bucket_numbers.splice( $scope.bucket_numbers.length - 2, 2 );
 
       var new_buckets = [];
       for( var b in buckets ) {
