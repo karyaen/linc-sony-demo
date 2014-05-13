@@ -100,6 +100,7 @@ angular.module('lwaAdminApp', [
     series: [{
       type: 'column',
       name: 'Price',
+      color: '#6666cc',
       data: []
     }],
     xAxis: {
@@ -198,6 +199,7 @@ angular.module('lwaAdminApp', [
             pointInterval: 24 * 3600 * 1000,
             pointStart: 0,
             data: [],
+            color: '#6666cc',
             marker: {
               enabled: false
             }
@@ -326,7 +328,7 @@ angular.module('lwaAdminApp', [
 
       var new_buckets = [];
       for( var b in buckets ) {
-        new_buckets.push({ y: buckets[b], color: '#2F7ED8' });
+        new_buckets.push({ y: buckets[b], color: '#6666cc' });
       }
 
       $scope.payHistogramConfig.series[0].data = new_buckets;

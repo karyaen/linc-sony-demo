@@ -48,7 +48,17 @@
     </div>
 
     <div class="row" style="padding-top:10px;">
-      <div class="col-md-12" style="text-align:right;">
+      <div class="col-md-2">
+        <h4>SUMMARY</h4>
+      </div>
+      <div class="col-md-4">
+        <p>Total Wants<br/><strong style="font-size:large;">88</strong></p>
+      </div>
+      <div class="col-md-6" style="text-align:right;">
+          <button class="btn btn-default">
+            Offers
+          </button>
+
           <button class="btn btn-default" ng-click="sendBulkPerk()">
             <img src="images/klout.png">
             Bulk Perks
@@ -60,26 +70,26 @@
       <div class="col-md-4 column-header" style="font-weight:bold;">
         <input type="checkbox" ng-model="all_selected" />
         <a ng-click="sort('name')" style="padding-left:0.5em;">Lead
-        <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='name'&&sort_reverse==false"></i>
-        <i class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="sort_order=='name'&&sort_reverse==true"></i>
+        <i class="glyphicon glyphicon-chevron-down" ng-show="sort_order=='name'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-chevron-up" ng-show="sort_order=='name'&&sort_reverse==true"></i>
         </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
         <a ng-click="sort('score')">Klout Score
-        <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='score'&&sort_reverse==false"></i>
-        <i class="glyphicon glyphicon-sort-by-order-alt" ng-show="sort_order=='score'&&sort_reverse==true"></i>
+        <i class="glyphicon glyphicon-chevron-down" ng-show="sort_order=='score'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-chevron-up" ng-show="sort_order=='score'&&sort_reverse==true"></i>
         </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
         <a ng-click="sort('pay')">Willing To Pay
-        <i class="glyphicon glyphicon-sort-by-order" ng-show="sort_order=='pay'&&sort_reverse==false"></i>
-        <i class="glyphicon glyphicon-sort-by-order-alt" ng-show="sort_order=='pay'&&sort_reverse==true"></i>
+        <i class="glyphicon glyphicon-chevron-down" ng-show="sort_order=='pay'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-chevron-up" ng-show="sort_order=='pay'&&sort_reverse==true"></i>
         </a>
       </div>
       <div class="col-md-2 column-header" style="font-weight:bold;">
         <a ng-click="sort('email')">Email
-        <i class="glyphicon glyphicon-sort-by-alphabet" ng-show="sort_order=='email'&&sort_reverse==false"></i>
-        <i class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="sort_order=='email'&&sort_reverse==true"></i>
+        <i class="glyphicon glyphicon-chevron-down" ng-show="sort_order=='email'&&sort_reverse==false"></i>
+        <i class="glyphicon glyphicon-chevron-up" ng-show="sort_order=='email'&&sort_reverse==true"></i>
         </a>
       </div>
       <div class="col-md-2 column-header">
@@ -101,7 +111,7 @@
       <div class="col-md-2">
         {{user.email}}
       </div>
-      <div class="col-md-2" style="text-align:center;">
+      <div class="col-md-2" style="text-align:left;">
         <button class="btn btn-default btn-xs">
           <img src="images/klout.png">
           Send Perk

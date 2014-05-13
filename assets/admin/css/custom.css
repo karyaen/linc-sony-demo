@@ -6,6 +6,15 @@
   src: url("fonts/DINRoundOT-Medium.otf");
 }
 
+h3 {
+	font-size: 21px;
+}
+
+.navbar-nav a {
+	font-family: Lithium Din;
+	font-size: 18px;
+}
+
 .navbar {
 	background-color: #352063;
 }

@@ -33,7 +33,7 @@
             <li><a href="#/">Ratings</a></li>
             <li style="width:150px;"><a href="#/">
             <div style="width:1px;height:1px;position:relative;">
-                <img src="images/olivia.png" height="35" style="position:absolute;top:-6px;left:-12px;">
+                <img src="images/olivia.png" height="35" style="position:absolute;top:-6px;left:-25px;">
             </div>
             &nbsp;Leslie Green</a></li>
             <li style="width:40px;"><a href="#/" style="width:40px;min-width:40px;"><img src="images/gear_purple.png" height="20"></a></li>
@@ -57,6 +57,7 @@
 </div>
 <div class="col-md-6" style="margin-top:2em;">
 <h4>55" Class (54.6" diag) XBR 4K Ultra HD TV</h4>
+<h4>XBR-55X900A</h4>
 <p>Price: $2,999.99 MSRP: $4,999.99</p>
 </div>
 </div>
@@ -84,15 +85,12 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div style="font-weight:bold">Chris Nesladek</div>
+            <div style="font-weight:bold;font-size:21px;">Chris Nesladek
+              <img src="images/shield.png" style="margin-right:0.5em;">
+            </div>
             <div>
             Change and Brand steward for Sony and Newton Running.
             Triathlon afficionado. Aspiring restauranteur. (All opinions my own).
-            </div>
-            <div>
-              <img src="images/shield.png" style="margin-right:0.5em;">
-              <img src="images/shield.png" style="margin-right:0.5em;">
-              <img src="images/shield.png" style="margin-right:0.5em;">
             </div>
           </div>
         </div>
@@ -145,7 +143,7 @@
 
         <div class="row" style="margin-top:0.5em;" ng-show="perksMode&&!doneMode">
           <div class="col-md-1" style="padding-top:2em;">
-            <strong style="font-size:large;"><span style="color:#E67D69;">Perks</span> 2</strong>
+            <strong style="font-size:large;"><span style="color:#E67D69;">Perks</span><br/>2</strong>
           </div>
 
           <div class="col-md-2">
@@ -176,7 +174,7 @@
         </div>
 
         <div class="row" ng-show="perksMode&&doneMode">
-          <div class="col-md-5" style="padding-top:2em;padding-bottom:3em;text-align:center;font-size:xx-large;color:#E67D69;margin-left:0.75em;">
+          <div class="col-md-5" style="padding-top:2em;padding-bottom:3em;text-align:center;font-size:32px;font-weight:bold;color:#E67D69;margin-left:0.75em;">
             Perk Sent!
           </div>
         </div>
@@ -184,10 +182,10 @@
       </div>
     </div>
     <div class="modal-footer">
-    <img src="images/klout_lg.png" style="float:left;margin-top:0.75em;">
+    <img src="images/klout_lg.png" style="float:left;margin-top:0.75em;" ng-show="!doneMode">
         <button class="btn btn-default" ng-click="ok()" ng-hide="perksMode">View Profile</button>
         <button class="btn btn-default" ng-click="sendPerk()" ng-hide="perksMode">Send Perk</button>
-        <button class="btn btn-success" ng-click="doDone()" ng-show="perksMode&&!doneMode">Perk Him</button>
+        <button class="btn btn-success" ng-click="doDone()" ng-show="perksMode&&!doneMode">Perk him</button>
         <button class="btn btn-default" ng-show="doneMode" ng-click="cancel()">Close</button>
     </div>
 </script>
