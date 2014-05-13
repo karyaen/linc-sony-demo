@@ -527,6 +527,11 @@ var OfferInstanceCtrl = function ($scope, $modalInstance, data) {
 var ModalInstanceCtrl = function ($scope, $modalInstance, user) {
   $scope.user = user;
   $scope.perksMode = false;
+  $scope.doneMode = false;
+
+  $scope.doDone = function() {
+    $scope.doneMode = true;
+  }
 
   $scope.sendPerk = function() {
     $scope.perksMode = true;

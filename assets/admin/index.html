@@ -70,29 +70,24 @@
 
 
 <script type="text/ng-template" id="myModalContent.html">
-    <div class="modal-header">
-        <h3 class="modal-title">
-        {{user.name}}
-          <span style="float:right"><img src="images/klout_lg.png"></span>
-        </h3>
-    </div>
     <div class="modal-body">
       <div class="container">
 
-        <div class="row">
+        <div class="row" ng-hide="perksMode&&doneMode">
           <div class="col-md-1">
             <div style="position:relative;height:85px;width:85px;">
-              <img src="images/peter_lg.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
+              <img src="images/chris.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
               <img src="images/klout_bubble.png" style="position:absolute;top:45px;left:0px;">
               <span style="position:absolute;top:48px;left:7px;font-size:15px;color:white;">
-                {{user.klout}}
+                55
               </span>
             </div>
           </div>
           <div class="col-md-4">
-            <div style="font-weight:bold">{{user.name}}</div>
+            <div style="font-weight:bold">Chris Nesladek</div>
             <div>
-            Change agent and nice guy. Currently dating @gwenstacy. (All opinions my own)
+            Change and Brand steward for Sony and Newton Running.
+            Triathlon afficionado. Aspiring restauranteur. (All opinions my own).
             </div>
             <div>
               <img src="images/shield.png" style="margin-right:0.5em;">
@@ -148,7 +143,7 @@
           </div>
         </div>
 
-        <div class="row" style="margin-top:0.5em;" ng-show="perksMode">
+        <div class="row" style="margin-top:0.5em;" ng-show="perksMode&&!doneMode">
           <div class="col-md-1" style="padding-top:2em;">
             <strong style="font-size:large;"><span style="color:#E67D69;">Perks</span> 2</strong>
           </div>
@@ -172,15 +167,27 @@
               <div style="padding-top:5px;">$15.00 off</div>
             </div>
           </div>
+        </div>
 
+        <div class="row" ng-show="perksMode&&doneMode">
+          <div class="col-md-5" style="padding-top:5em;text-align:center;margin-left:1.5em;">
+            <img src="images/klout_lg.png">
+          </div>
+        </div>
+
+        <div class="row" ng-show="perksMode&&doneMode">
+          <div class="col-md-5" style="padding-top:2em;padding-bottom:3em;text-align:center;font-size:xx-large;color:#E67D69;margin-left:0.75em;">
+            Perk Sent!
+          </div>
         </div>
 
       </div>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-default" ng-click="ok()">View Profile</button>
-        <button class="btn btn-info" ng-click="sendPerk()" ng-hide="perksMode"><img src="images/klout.png"> Send Perk</button>
-        <button class="btn btn-info" ng-show="perksMode"><img src="images/klout.png"> Perk Him</button>
+        <button class="btn btn-default" ng-click="ok()" ng-hide="perksMode">View Profile</button>
+        <button class="btn btn-default" ng-click="sendPerk()" ng-hide="perksMode"><img src="images/klout.png"> Send Perk</button>
+        <button class="btn btn-default" ng-click="doDone()" ng-show="perksMode&&!doneMode"><img src="images/klout.png"> Perk Him</button>
+        <button class="btn btn-default" ng-show="doneMode" ng-click="cancel()">Close</button>
     </div>
 </script>
 
