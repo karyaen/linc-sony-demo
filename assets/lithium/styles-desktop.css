@@ -117,7 +117,10 @@ body#ws-product .sny-product-header.sny-hdr-stuck {
   margin-right: 15px;
 }
 .bottom-header > div.wants-button-elm {
-    margin-left: 50px;
+    margin-left: 20px;
+}
+.bottom-header > div.wants-button-elm .li-wants-button {
+    padding: 5px 30px;
 }
 
 /**
