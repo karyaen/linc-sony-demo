@@ -130,6 +130,7 @@ body#ws-product .sny-product-header.sny-hdr-stuck {
   left: auto;
   bottom: auto;
   visibility: hidden;
+  height: 0px;
 }
 
 #klout-score-hover .inner-div {
