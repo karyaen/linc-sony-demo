@@ -41,6 +41,7 @@ angular.module('lwaAdminApp', [
         last: '@last',
         name: '@name',
         since: '@since',
+        klout: '@klout',
         replies: '@replies',
         plusk: '@plusk',
         posted: '@posted',
@@ -49,7 +50,7 @@ angular.module('lwaAdminApp', [
       transclude: true,
       link: function( $scope, element ) {
         $scope.sendPerk = function() {
-          $scope.$emit('sendPerk',null);
+          $scope.$emit('sendPerk',$scope.icon);
         }
         var transcludedBlock = element.find('div.transcluded');
         var postBlock = element.find('div.post-holder');
@@ -487,19 +488,23 @@ angular.module('lwaAdminApp', [
     document.location.href = '/admin/#/wants';
   };
 
-  $scope.$on( 'sendPerk', function( ) {
-    console.log( 'sendPerk' );
-    $scope.open( { name: 'Peter Parker', klout: 49 } );
+  $scope.$on( 'sendPerk', function( event, icon ) {
+    var data = { icon: "chris", first: "Chris", last: "Nasladek", klout: 55, pronoun: "him", blurb: "Change and brand steward for Sony and Newton Running. Triathlon afficionado. Aspiring restauranteur. (All opinions my own)." };
+    if ( icon == 'sue' ) {
+      data = { icon: "sue", first: "Sue", last: "Smith", klout: 85, pronoun: "her", blurb: "Change and brand advocate. Pinterest and Twitter afficionado. Aspiring Yogi." };
+    }
+
+    $scope.open( data );
   } );
 
-  $scope.open = function( user ) {
-    $scope.user = user;
+  $scope.open = function( data ) {
+    $scope.data = data;
     var modalInstance = $modal.open({
       templateUrl: 'myModalContent.html',
       controller: ModalInstanceCtrl,
       resolve: {
-        user: function () {
-          return $scope.user;
+        data: function () {
+          return $scope.data;
         }
       }
     });
@@ -512,8 +517,8 @@ angular.module('lwaAdminApp', [
 
 
 var OfferInstanceCtrl = function ($scope, $modalInstance, data) {
-  $scope.low = data.low;
-  $scope.high = data.high;
+  $scope.low = 2700;
+  $scope.high = 3000;
   $scope.count = data.count;
   $scope.discount = data.discount;
 
@@ -526,8 +531,8 @@ var OfferInstanceCtrl = function ($scope, $modalInstance, data) {
   };
 }
 
-var ModalInstanceCtrl = function ($scope, $modalInstance, user) {
-  $scope.user = user;
+var ModalInstanceCtrl = function ($scope, $modalInstance, data) {
+  $scope.data = data;
   $scope.perksMode = false;
   $scope.doneMode = false;
 
