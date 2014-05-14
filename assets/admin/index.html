@@ -77,20 +77,19 @@
         <div class="row" ng-hide="perksMode&&doneMode">
           <div class="col-md-1">
             <div style="position:relative;height:85px;width:85px;">
-              <img src="images/chris.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
+              <img ng-src="images/{{data.icon}}.png" height="80" width="80" style="position:absolute;top:0px;left:5px;">
               <img src="images/klout_bubble.png" style="position:absolute;top:45px;left:0px;">
               <span style="position:absolute;top:48px;left:7px;font-size:15px;color:white;">
-                55
+                {{data.klout}}
               </span>
             </div>
           </div>
           <div class="col-md-4">
-            <div style="font-weight:bold;font-size:21px;">Chris Nesladek
+            <div style="font-weight:bold;font-size:21px;">{{data.first}} {{data.last}}
               <img src="images/shield.png" style="margin-right:0.5em;">
             </div>
             <div>
-            Change and Brand steward for Sony and Newton Running.
-            Triathlon afficionado. Aspiring restauranteur. (All opinions my own).
+            {{data.blurb}}
             </div>
           </div>
         </div>
@@ -185,7 +184,7 @@
     <img src="images/klout_lg.png" style="float:left;margin-top:0.75em;" ng-show="!doneMode">
         <button class="btn btn-default" ng-click="ok()" ng-hide="perksMode">View Profile</button>
         <button class="btn btn-default" ng-click="sendPerk()" ng-hide="perksMode">Send Perk</button>
-        <button class="btn btn-success" ng-click="doDone()" ng-show="perksMode&&!doneMode">Perk him</button>
+        <button class="btn btn-success" ng-click="doDone()" ng-show="perksMode&&!doneMode">Perk {{data.pronoun}}</button>
         <button class="btn btn-default" ng-show="doneMode" ng-click="cancel()">Close</button>
     </div>
 </script>

@@ -1,0 +1,147 @@
+.rate-header {
+  font-size: 20px;
+  font-weight: 400;
+  color: #ed4e24;
+  margin: 15px 0;
+  font-family: "helvetica neue";
+}
+
+#container .product-header {
+  position: relative;
+  margin-top: 15px;
+}
+
+.li-tv {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+#kscore-btn-default {
+  background: url(/lithium/mobile_Kscore_btn_default.png) no-repeat;
+  background-size: 40px 40px;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 230px;
+  top: 145px;
+}
+
+.product-header > .left-block {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+}
+
+.right-block h1 {
+  margin-bottom: 5px;
+}
+
+.right-block h2 {
+  font-size: 14px;
+}
+
+.product-header > .right-block {
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+}
+.product-header > .left-block > .mobile-kscore {
+  height: 60px;
+  width: 60px;
+  background: #FFF;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+
+.product-header > .left-block > #kscore-btn-press {
+  visibility: hidden;
+  background-image: url(/lithium/mobile_Kscore_btn_press.png);
+}
+
+.product-header > .left-block:active > #kscore-btn-default {
+  visibility: hidden;
+}
+.product-header > .left-block:active > #kscore-btn-press,
+.product-header > .left-block.clicked > #kscore-btn-press {
+  visibility: visible;
+}
+.product-header > .right-block > .stars {
+  height: 20px;
+  width: 120px;
+  background-image: url(/lithium/mobile_stars.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 5px;
+}
+.product-header .klout-score-flyout {
+  position: absolute;
+  visibility: hidden;
+  z-index: 50;
+}
+.klout-score-flyout > .inner-flyout {
+  background-color: #FFFFFF;
+  border: 1px solid #339933;
+}
+.product-header .klout-score-flyout .inner-flyout > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.product-header .klout-score-flyout .inner-flyout > div > img {
+  width: 100%;
+  padding: 5px;
+}
+.product-header .klout-score-flyout .inner-flyout > .score-summary {
+  width:28%;
+}
+.product-header .klout-score-flyout .inner-flyout > .stats-summary {
+  width: 67%;
+}
+
+#klout-score-flyout .inner-flyout .arrow {
+  border: 1px solid #339933;
+  position: absolute;
+}
+
+#klout-score-flyout .inner-flyout > .arrow,
+#klout-score-flyout .inner-flyout > .arrow::after {
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+
+#klout-score-flyout .inner-flyout > .arrow {
+  border-width: 11px;
+}
+
+#klout-score-flyout .inner-flyout > .arrow::after {
+  border-width: 10px;
+}
+
+#klout-score-flyout .inner-flyout > .arrow {
+  left: 30px;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #339933;
+  top: -10px;
+}
+
+#klout-score-flyout .inner-flyout > .arrow::after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: #ffffff;
+}
+
+body #container[data-id="menu"] #mainContent {
+  overflow: hidden;
+}
+
+#mainContent {
+  min-height: 1000px;
+}
