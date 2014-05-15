@@ -293,39 +293,9 @@ angular.module('lwaAdminApp', [
         average_users += $scope.data[i].total;
       }
 
-      var bucket_size = 100.0;
-
-      var min_pay = 10000;
-      var max_pay = 0;
-      for( var i = start; i < $scope.data.length; i++ ) {
-        var pay = Math.round( $scope.data[i].mean * 100.0 ) / 100.0;
-        if ( pay < min_pay ) min_pay = pay;
-        if ( pay > max_pay ) max_pay = pay;
-      }
-      min_pay = Math.floor( min_pay / bucket_size ) * bucket_size;
-      min_pay = 2000;
-      max_pay = Math.floor( max_pay / bucket_size ) * bucket_size;
-      var bucket_count = ( max_pay - min_pay ) / bucket_size;
-      var buckets = [];
-      $scope.bucket_numbers = [];
-      $scope.bucket_sizes = {};
-      for( var b = 0; b < bucket_count; b++ ) {
-        buckets.push( 0 );
-        var buck = Math.round( min_pay + ( b * bucket_size ) );
-        $scope.bucket_numbers.push( buck );
-        $scope.bucket_sizes[ buck ] = 0;
-      }
-      for( var i = start; i < $scope.data.length; i++ ) {
-        var pay = Math.round( $scope.data[i].mean * 100.0 ) / 100.0;
-        var adj = Math.floor( pay / bucket_size ) * bucket_size;
-        var b = Math.floor( ( adj - min_pay ) / bucket_size );
-
-        $scope.bucket_sizes[ adj ] += 1;
-
-        buckets[ b ] += 1;
-      }
-      buckets.splice( buckets.length - 3, 3 );
-//      $scope.bucket_numbers.splice( $scope.bucket_numbers.length - 2, 2 );
+      var buckets = [ 100, 200, 300, 100, 100, 50, 75, 100, 20, 100, 0 ];
+      $scope.bucket_numbers = [ 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000 ];
+      $scope.bucket_sizes = { 0: 2000, 1: 2100, 2: 2200, 3: 2300, 4: 2400, 5: 2500, 6: 2600, 7: 2700, 8: 2800, 9: 2900, 10: 3000 };
 
       var new_buckets = [];
       for( var b in buckets ) {
