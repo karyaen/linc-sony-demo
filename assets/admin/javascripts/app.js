@@ -458,12 +458,15 @@ angular.module('lwaAdminApp', [
     document.location.href = '/admin/#/wants';
   };
 
+  $scope.rowOpen = function() {
+    $scope.$emit('sendPerk','chris');
+  }
+
   $scope.$on( 'sendPerk', function( event, icon ) {
     var data = { icon: "chris", first: "Chris", last: "Nasladek", klout: 55, pronoun: "him", blurb: "Change and brand steward for Sony and Newton Running. Triathlon afficionado. Aspiring restauranteur. (All opinions my own)." };
     if ( icon == 'sue' ) {
       data = { icon: "sue", first: "Sue", last: "Smith", klout: 85, pronoun: "her", blurb: "Change and brand advocate. Pinterest and Twitter afficionado. Aspiring Yogi." };
     }
-
     $scope.open( data );
   } );
 

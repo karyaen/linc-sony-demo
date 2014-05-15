@@ -1,9 +1,9 @@
 <div class="row" style="margin-bottom:1em;">
 	<div class="col-md-2" style="text-align:center;">
 		<div style="position:relative">
-			<img ng-src="images/{{icon}}.png" width="40" height="40" />
-			<img src="images/klout_bubble.png" style="position:absolute;top:25px;left:-7px;" width="20" height="20">
-			<div style="position:absolute;top:27px;color:white;font-size:10px;left:-2px;">{{klout}}</div>
+			<img ng-src="images/{{icon}}.png" width="60" height="60" />
+			<img src="images/klout_bubble.png" style="position:absolute;top:25px;left:-9px;" width="30" height="30">
+			<div style="position:absolute;top:28px;color:white;font-size:14px;left:-2px;">{{klout}}</div>
 		</div>
 	</div>
 	<div class="col-md-3" style="">
@@ -14,7 +14,7 @@
 		+K's<br/>
 		<strong>{{plusk}}</strong>
 	    <div style="background-color:#333333;width:33px;height:8px;position:relative;">
-	      <div style="background-color:#FF9B10;width:16px;height:8px;position:absolute;">
+	      <div style="background-color:#FF9B10;width:16px;height:8px;position:absolute;" ng-if="plusk>0">
 	      </div>
 	    </div>
 	</div>
@@ -22,7 +22,7 @@
 		Replies<br/>
 		<strong>{{replies}}</strong>
 	    <div style="background-color:#333333;width:33px;height:8px;position:relative;">
-	      <div style="background-color:#00CF0E;width:16px;height:8px;position:absolute;">
+	      <div style="background-color:#00CF0E;width:16px;height:8px;position:absolute;" ng-if="replies>0">
 	      </div>
 	    </div>
 	</div>

@@ -103,7 +103,7 @@
       </div>
     </div>
 
-    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'" ng-click="open( user )">
+    <div class="row person" ng-repeat="user in users track by user.id" style="padding-top:0.2em;padding-bottom:0.2em;" ng-class-even="'even'" ng-class-odd="'odd'" ng-click="rowOpen()">
       <div class="col-md-4 lead-name">
         <input type="checkbox" ng-model="user.selected" />
         <a>{{user.name}}</a>
