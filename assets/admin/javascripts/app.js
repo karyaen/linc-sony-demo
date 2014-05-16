@@ -386,7 +386,7 @@ angular.module('lwaAdminApp', [
 
   $scope.price_low = 2000;
   $scope.price_high = 3000;
-  $scope.user_count = 120;
+  $scope.user_count = 178;
   $scope.histogramClick = function( low, high ) {
     $scope.usersToAdd = [];
     $scope.users = [];
