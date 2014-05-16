@@ -9388,11 +9388,14 @@ Pointer.prototype = {
 
 			each(chart.axes, function (axis) {
 				if ( axis.horiz ) {
+					console.log( 'tracking '+chartX );
 					var min = axis.toValue(chartX),
 					max = axis.toValue(chartX + size);
 					fireEvent(chart, 'selectionDuring', { min: min, max: max, chart: chart }, function (args) {
 						each(chart.series, function (serie) {
-								serie.redraw();
+							serie.isDirty = true;
+							serie.generatePoints();
+							serie.redraw();
 						});
 					});
 				}
@@ -9535,6 +9538,7 @@ Pointer.prototype = {
 		// Show the tooltip and run mouse over events (#977)
 		if ((this.inClass(e.target, 'highcharts-tracker') ||
 				chart.isInsidePlot(e.chartX - chart.plotLeft, e.chartY - chart.plotTop)) && !chart.openMenu) {
+
 			this.runPointActions(e);
 		}
 	},
@@ -13994,6 +13998,7 @@ Series.prototype = {
 		group.inverted = series.isCartesian ? chart.inverted : false;
 
 		// draw the graph if any
+
 		if (series.drawGraph) {
 			series.drawGraph();
 			series.clipNeg();

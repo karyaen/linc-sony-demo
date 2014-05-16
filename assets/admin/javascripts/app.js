@@ -104,6 +104,13 @@ angular.module('lwaAdminApp', [
       color: '#6666cc',
       data: []
     }],
+        plotOptions: {
+            series: {
+                marker: {
+                    fillColor: 'orange'
+                }
+            }
+        },
     xAxis: {
       categories: []
     },
@@ -113,13 +120,35 @@ angular.module('lwaAdminApp', [
       zoomType: 'x',
       events: {
         selectionDuring: function(event) {
-          var min = Math.round(event.min);
-          var max = Math.round(event.max);
-          $scope.payHistogramConfig.series[0].data[min].color = 'orange';
+          var min = Math.min( Math.round(event.min), Math.round(event.max) );
+          var max = Math.max( Math.round(event.min), Math.round(event.max) );
+          for( var i = min; i <= max; i++ ) {
+            if ( $scope.payHistogramConfig.series[0].data[i] ) {
+              $scope.payHistogramConfig.series[0].data[i].color = 'orange';
+            }
+          }
         },
         selection: function(event) {
           if (event.xAxis) {
+            $scope.summary.users = 108;
+            $scope.summary.klout = 48;
+            $scope.summary.range = "$2700-3000";
+
             $scope.histogramClick(Math.round(event.xAxis[0].min),Math.round(event.xAxis[0].max));
+
+            var min = Math.round(event.xAxis[0].min);
+            var max = Math.round(event.xAxis[0].max);
+
+            for( var i = min; i <= max; i++ ) {
+              if ( $scope.payHistogramConfig.series[0].data[i] ) {
+                $scope.payHistogramConfig.series[0].data[i].color = 'orange';
+              }
+            }
+
+            window.setTimeout( function() {
+              $scope.payHistorgram.redraw( false );
+            }, 0 );
+
             return false;
           }
         }
@@ -133,6 +162,12 @@ angular.module('lwaAdminApp', [
     },
     title: { text: '' }
   };
+
+  $scope.summary = {
+    users: 308,
+    klout: 54,
+    range: "$2000-3000"
+  }
 
   $scope.payChartConfig = {
     series: [{
@@ -307,7 +342,7 @@ angular.module('lwaAdminApp', [
       $scope.payHistogramConfig.xAxis.categories = $scope.bucket_numbers;
 
       if( $('#payHistogram').length > 0 ) {
-        new Highcharts.Chart($scope.payHistogramConfig);
+        $scope.payHistorgram = new Highcharts.Chart($scope.payHistogramConfig);
       }
 
       if( avg_pay.length > 60 ) {
