@@ -84,7 +84,7 @@ angular.module('lwaAdminApp', [
   $scope.set_range = function( range ) {
     $scope.range = range;
   }
-  $scope.range = 90;
+  $scope.range = 30;
 
   $scope.tab = 'overview';
   $scope.$on('tabChange',function(event,tab){
@@ -378,7 +378,9 @@ angular.module('lwaAdminApp', [
 
   $scope.data = [];
   for( var i = 0; i < 90; i++ ) {
-    $scope.data.push( {} );
+    $scope.data.push( {
+      timestamp: ( new Date( 2014, 4, 21 ) - ( 60 * 60 * 24 * 1000 * ( 90 - i ) ) )
+    } );
   }
   var mag = 4;
   buildWave( $scope.data, 'mean', 2000, 80, [
@@ -463,7 +465,7 @@ angular.module('lwaAdminApp', [
   }
 
   $scope.$on( 'sendPerk', function( event, icon ) {
-    var data = { icon: "chris", first: "Chris", last: "Nasladek", klout: 55, pronoun: "him", blurb: "Change and brand steward for Sony and Newton Running. Triathlon afficionado. Aspiring restauranteur. (All opinions my own)." };
+    var data = { icon: "chris", first: "Chris", last: "Nesladek", klout: 55, pronoun: "him", blurb: "Change and brand steward for Sony and Newton Running. Triathlon afficionado. Aspiring restauranteur. (All opinions my own)." };
     if ( icon == 'sue' ) {
       data = { icon: "sue", first: "Sue", last: "Smith", klout: 85, pronoun: "her", blurb: "Change and brand advocate. Pinterest and Twitter afficionado. Aspiring Yogi." };
     }
