@@ -130,7 +130,7 @@ angular.module('lwaAdminApp', [
         },
         selection: function(event) {
           if (event.xAxis) {
-            $scope.summary.users = 108;
+            $scope.summary.users = 178;
             $scope.summary.klout = 48;
             $scope.summary.range = "$2700-3000";
 
@@ -164,7 +164,7 @@ angular.module('lwaAdminApp', [
   };
 
   $scope.summary = {
-    users: 308,
+    users: 378,
     klout: 54,
     range: "$2000-3000"
   }
@@ -328,7 +328,7 @@ angular.module('lwaAdminApp', [
         average_users += $scope.data[i].total;
       }
 
-      var buckets = [ 100, 200, 300, 100, 100, 50, 75, 100, 20, 100, 0 ];
+      var buckets = [ 100, 200, 300, 100, 100, 50, 75, 100, 90, 100, 0 ];
       $scope.bucket_numbers = [ 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000 ];
       $scope.bucket_sizes = { 0: 2000, 1: 2100, 2: 2200, 3: 2300, 4: 2400, 5: 2500, 6: 2600, 7: 2700, 8: 2800, 9: 2900, 10: 3000 };
 
