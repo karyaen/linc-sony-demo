@@ -328,6 +328,8 @@ angular.module('lwaAdminApp', [
         average_users += $scope.data[i].total;
       }
 
+      totals[ totals.length - 1 ] = ( parseFloat( average_users ) / parseFloat( $scope.range ) ) * 1.5;
+
       var buckets = [ 100, 200, 300, 100, 100, 50, 75, 100, 90, 100, 0 ];
       $scope.bucket_numbers = [ 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000 ];
       $scope.bucket_sizes = { 0: 2000, 1: 2100, 2: 2200, 3: 2300, 4: 2400, 5: 2500, 6: 2600, 7: 2700, 8: 2800, 9: 2900, 10: 3000 };
@@ -414,7 +416,7 @@ angular.module('lwaAdminApp', [
   $scope.data = [];
   for( var i = 0; i < 90; i++ ) {
     $scope.data.push( {
-      timestamp: ( new Date( 2014, 4, 21 ) - ( 60 * 60 * 24 * 1000 * ( 90 - i ) ) )
+      timestamp: ( new Date( 2014, 6, 21 ) - ( 60 * 60 * 24 * 1000 * ( 90 - i ) ) )
     } );
   }
   var mag = 4;
@@ -438,7 +440,7 @@ angular.module('lwaAdminApp', [
     [ 10, -5 * mag ],
     [ 10, -5 * mag ],
     [ 10, 0 * mag ],
-    [ 10, 0 * mag ]
+    [ 10, 10 * mag ]
   ]);
 
   $scope.sort_order = 'name';
