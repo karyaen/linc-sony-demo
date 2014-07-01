@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+  <title>Widgets - All - Formatted</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script id="li-syndicate" src="http://distributed.qa.lcloud.com/assets/widgets/js/scripts/syndicate.js"></script>
+  <style>
+    .header, .footer {
+      min-height: 100px;
+      text-align: center;
+    }
+    .main {
+      min-height: 500px;
+    }
+    .block {
+      background: #f5f5f5;
+      border: 1px solid #cccccc;
+      margin: 10px;
+      padding: 10px;
+    }
+    .side {
+      background: #fff;
+    }
+  </style>
+</head>
+<body class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header block">
+        Header
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="main block">
+        <li:reviews-widget href="http://distributed.qa.lcloud.com/widgets/reviews/bc8a6694-0744-46f8-930f-01005382123c"></li:reviews-widget>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="side block">
+        <li:wants-button href="http://distributed.qa.lcloud.com/widgets/wants/bc8a6694-0744-46f8-930f-01005382123c" min-price="2500" max-price="3400"><button class="li-wants-button" style="display: none;" onclick="LITHIUM.Widgets.WantsButton.toggle(this); return false;">Want</button></li:wants-button>
+        <hr />
+        <li:endorsements-widget href="http://distributed.qa.lcloud.com/widgets/endorsements/bc8a6694-0744-46f8-930f-01005382123c?id=8&id=9"></li:endorsements-widget>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="footer block">
+        Footer
+      </div>
+    </div>
+  </div>
+</body>
+</html>
