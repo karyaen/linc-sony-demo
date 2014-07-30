@@ -39,7 +39,7 @@ env:
   - secure: ZEyOLMIR2cMblCzd5B+LKTFpIQdne8qzuGF6tJVmh2RHayl/TyiePwKAeL8KnX+tnFhuTYmLdgzcBtIFysO4EqUDTLqZ17LiYdlJ+6QVxKDiP/uDYm4RYqgmP3TDu3PCCQMp6etNuonU+2S/I5ybGPcYbGpg0GNJZei0uuWhzmg=
 language: node_js
 node_js:
-- 0.10.26
+- "0.10"
 notifications:
   hipchat:
     matrix:
