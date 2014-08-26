@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>Widgets - All - Formatted</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <script id="li-syndicate" src="http://distributed.lithium.com/assets/widgets/js/scripts/syndicate.js"></script>
+  <style>
+    .header, .footer {
+      min-height: 100px;
+      text-align: center;
+    }
+    .main {
+      min-height: 500px;
+    }
+    .block {
+      background: #f5f5f5;
+      border: 1px solid #cccccc;
+      margin: 10px;
+      padding: 10px;
+    }
+    .side {
+      background: #fff;
+    }
+  </style>
+</head>
+<body class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header block">
+        Header
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="main block">
+        <li:reviews-widget sku="eco-rail" company-guid="ecohaus"></li:reviews-widget>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="side block">
+        <li:wants-button default-price="350" max-price="400" min-price="300" company-guid="ecohaus" sku="eco-rail" buy-reasons-list="[&quot;Hebrew: אני יכול לאכול זכוכית,&quot;,&quot;Neo-Melanesian: Mipela inap ka&quot;,&quot;Estonian: Ma võin klaasi süüa,&quot;,&quot;Maltese: L-istess riħ li uproo&quot;,&quot;ฉัน&quot;]"></li:wants-button>
+        <li:endorsements-widget company-guid="ecohaus" sku="eco-rail" reasons-list="[&quot;Chinese 同样的风连根拔起的树 木&quot;,&quot;Thai: ฉันสามารถกิน้ว&quot;,&quot;Danish:Jeg kan spise&quot;,&quot;সরেজমিন&quot;,&quot;来&quot;]"></li:endorsements-widget>  
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="footer block">
+        Footer
+      </div>
+    </div>
+  </div>
+</body>
+</html>
