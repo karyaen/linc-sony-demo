@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <title>Widgets - All - Formatted</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script id="li-syndicate" src="http://localhost:1337/assets/widgets/js/scripts/syndicate.js"></script>
+  <style>
+    .header, .footer {
+      min-height: 100px;
+      text-align: center;
+    }
+    .main {
+      min-height: 500px;
+    }
+    .block {
+      background: #f5f5f5;
+      border: 1px solid #cccccc;
+      margin: 10px;
+      padding: 10px;
+    }
+    .side {
+      background: #fff;
+    }
+  </style>
+</head>
+<body class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header block">
+        Header
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="main block">
+        <h1> Mini Rating Widget</h1>
+        <li:rating-widget sku="hawley1" company-guid="sony"></li:rating-widget>
+        <hr/>
+        <li:reviews-widget sku="hawley1" company-guid="sony"></li:reviews-widget>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="side block">
+        <li:wants-button buy-reasons-list="[&quot;Buy Reason 1 30 char()#&amp;123456&quot;,&quot;Buy Reason 2 30 char$%@!123456&quot;,&quot;Buy Reason 5 30 char%%@#123456&quot;,&quot;$&quot;,&quot;Buy Reason 7 30 char**@#123456&quot;]" sku="hawley1" company-guid="sony" min-price="5" max-price="11" default-price="7"></li:wants-button>
+        <li:endorsements-widget reasons-list="[&quot;Endorsement Reason 1 30 char$%&quot;,&quot;Endorsement Reason 2 30 char()&quot;,&quot;Endorsement Reason 5 30 char%%&quot;,&quot;*&quot;,&quot;Endorsement Reason 6 30 char##&quot;]" sku="hawley1" company-guid="sony"></li:endorsements-widget> 
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="footer block">
+        Footer
+      </div>
+    </div>
+  </div>
+</body>
+</html>

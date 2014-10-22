@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <title>Widgets - RnR - Formatted</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script id="li-syndicate" src="http://localhost:1337/assets/widgets/js/scripts/syndicate.js"></script>
+  <style>
+    .header, .footer {
+      min-height: 100px;
+      text-align: center;
+    }
+    .main, .side {
+      min-height: 500px;
+    }
+    .block {
+      background: #f5f5f5;
+      border: 1px solid #cccccc;
+      margin: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body class="container">
+<div class="row">
+  <div class="col-lg-12">
+    <div class="header block">
+      Header
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="main block">
+       <li:rating-widget sku="hawley2" company-guid="sony"></li:rating-widget>
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="side block">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="footer block">
+      Footer
+    </div>
+  </div>
+</div>
+</body>
+</html>

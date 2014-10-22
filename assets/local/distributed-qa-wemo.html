@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>Widgets - All - Formatted</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script id="li-syndicate" src="http://localhost:1337/assets/widgets/js/scripts/syndicate.js"></script>
+  <style>
+    .header, .footer {
+      min-height: 100px;
+      text-align: center;
+    }
+    .main {
+      min-height: 500px;
+    }
+    .block {
+      background: #f5f5f5;
+      border: 1px solid #cccccc;
+      margin: 10px;
+      padding: 10px;
+    }
+    .side {
+      background: #fff;
+    }
+  </style>
+</head>
+<body class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="header block">
+        Header
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="main block">
+        <li:reviews-widget sku="eco-wemo" company-guid="sony"></li:reviews-widget>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="side block">
+        <li:wants-button buy-reasons-list="[&quot;easy-installation&quot;,&quot;company-reputation&quot;,&quot;saves-money&quot;,&quot;cool-technology&quot;,&quot;looks-great&quot;]" sku="eco-wemo" company-guid="sony"></li:wants-button>
+        <li:endorsements-widget reasons-list="[&quot;easy-installation&quot;,&quot;company-reputation&quot;,&quot;saves-money&quot;,&quot;cool-technology&quot;,&quot;looks-great&quot;]" sku="eco-wemo" company-guid="sony"></li:endorsements-widget>  
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="footer block">
+        Footer
+      </div>
+    </div>
+  </div>
+</body>
+</html>
